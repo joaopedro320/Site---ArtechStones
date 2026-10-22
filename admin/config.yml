@@ -1,0 +1,80 @@
+# Painel de edição das pedras (Decap CMS). Endereço de login e logo são definidos em admin/index.html conforme o domínio.
+backend:
+  name: github
+  repo: joaopedro320/Site---ArtechStones
+  branch: main
+  commit_messages:
+    create: "Nova pedra: {{slug}} (por {{author-name}})"
+    update: "Pedra atualizada: {{slug}} (por {{author-name}})"
+    delete: "Pedra removida: {{slug}} (por {{author-name}})"
+    uploadMedia: "Foto enviada: {{path}} (por {{author-name}})"
+    deleteMedia: "Foto removida: {{path}} (por {{author-name}})"
+
+# Revisão antes de publicar: Rascunho > Em revisão > Pronto > Publicar
+publish_mode: editorial_workflow
+
+locale: pt
+
+media_folder: data/stones/fotos
+public_folder: ""
+
+collections:
+  - name: pedras
+    label: Pedras
+    label_singular: Pedra
+    description: "Cada pedra é um card no catálogo. Depois de salvar, envie para revisão. O site só muda quando a revisão for aprovada e publicada."
+    folder: data/stones
+    format: json
+    extension: json
+    create: true
+    delete: true
+    slug: "{{fields.id}}"
+    identifier_field: name
+    editor: { preview: false }
+    summary: "{{name}} ({{line}})"
+    sortable_fields: [name, line, order]
+    view_groups:
+      - { label: Linha, field: line }
+      - { label: Esgotada, field: soldOut }
+    fields:
+      - { label: "Nome da pedra", name: name, widget: string }
+      - label: "Código"
+        name: id
+        widget: string
+        pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', "Use só letras minúsculas, números e hífen. Ex.: calacatta-gold-laminas"]
+        hint: "Vira o nome do arquivo. Não altere depois de publicado."
+      - label: "Linha"
+        name: line
+        widget: select
+        options:
+          - { label: "ArtechLâminas", value: laminas }
+          - { label: "ArtechQuartzo", value: quartzo }
+          - { label: "ArtechNano", value: nano }
+          - { label: "Pedras naturais", value: natural }
+      - label: "Tipo (só para pedras naturais)"
+        name: type
+        widget: select
+        required: false
+        options:
+          - { label: "Granito", value: granite }
+          - { label: "Mármore", value: marble }
+      - label: "Foto"
+        name: image
+        widget: image
+        required: false
+        choose_url: false
+        hint: "JPG, PNG ou WebP, qualquer tamanho. O site gera as versões otimizadas sozinho."
+      - { label: "Esgotada (Sold out)", name: soldOut, widget: boolean, default: false }
+      - label: "Acabamentos"
+        name: finishes
+        widget: list
+        required: false
+        default: []
+        hint: "Separe por vírgula. Ex.: Polido, Acetinado"
+      - label: "Posição no catálogo"
+        name: order
+        widget: number
+        value_type: int
+        min: 0
+        default: 100
+        hint: "Número menor aparece primeiro."
