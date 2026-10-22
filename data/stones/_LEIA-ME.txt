@@ -1,0 +1,2 @@
+Uma pedra por arquivo. Campos: id (igual ao nome do arquivo), name, line (laminas, quartzo, nano ou natural), type (granite ou marble, so para natural), image (nome base em src/img/stones ou null), soldOut (true/false), finishes (lista), order (posicao no catalogo).
+Depois de alterar, rode: python3 build.py

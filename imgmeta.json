@@ -1,0 +1,222 @@
+{
+ "artechstone-gallery-sao-paulo-facade": {
+  "w": 2600,
+  "h": 1733,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#696160"
+ },
+ "artechstone-gallery-facade-night": {
+  "w": 2600,
+  "h": 1733,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#615958"
+ },
+ "artechstone-gallery-entrance": {
+  "w": 1733,
+  "h": 2600,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#6d6057"
+ },
+ "showroom-ultracompact-slabs-aisle": {
+  "w": 2600,
+  "h": 1733,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#9c8b85"
+ },
+ "artechstone-catalogue": {
+  "w": 1733,
+  "h": 2600,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#c9b0a1"
+ },
+ "ultracompact-slab-veining-detail": {
+  "w": 2600,
+  "h": 1733,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#b6a299"
+ },
+ "lounge-exotic-stone-slab": {
+  "w": 1733,
+  "h": 2600,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#7c6d6c"
+ },
+ "showroom-slabs-portrait": {
+  "w": 1733,
+  "h": 2600,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#928486"
+ },
+ "architects-event-gallery": {
+  "w": 2600,
+  "h": 1733,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#98877c"
+ },
+ "showroom-marble-look-slabs": {
+  "w": 2600,
+  "h": 1733,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#928785"
+ },
+ "showroom-mezzanine-slabs": {
+  "w": 2600,
+  "h": 1733,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#9f9089"
+ },
+ "showroom-wide-view": {
+  "w": 2600,
+  "h": 1733,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#a7988e"
+ },
+ "visitors-reviewing-slab": {
+  "w": 2600,
+  "h": 1733,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#7f6a6a"
+ },
+ "sculpted-sink-stone-surface": {
+  "w": 1733,
+  "h": 2600,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#beafb8"
+ },
+ "lounge-chair-stone-slab": {
+  "w": 1733,
+  "h": 2600,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#876f65"
+ },
+ "hand-on-slab-texture": {
+  "w": 1733,
+  "h": 2600,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#785f59"
+ },
+ "stone-samples-table": {
+  "w": 1733,
+  "h": 2600,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#bfb1ae"
+ },
+ "stone-samples-selection": {
+  "w": 1733,
+  "h": 2600,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#9c9592"
+ },
+ "reading-artechstone-catalogue": {
+  "w": 2600,
+  "h": 1733,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#837281"
+ },
+ "slab-consultation": {
+  "w": 2600,
+  "h": 1733,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#5f635a"
+ },
+ "choosing-stone-samples": {
+  "w": 2600,
+  "h": 1733,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#968486"
+ },
+ "stone-samples-hands": {
+  "w": 2600,
+  "h": 1733,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#927f78"
+ }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "dallas",
+  "name": "Dallas",
+  "line": "natural",
+  "type": "granite",
+  "image": null,
+  "soldOut": false,
+  "finishes": [],
+  "order": 30
+}
