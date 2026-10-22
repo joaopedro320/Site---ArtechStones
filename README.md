@@ -77,7 +77,7 @@ Painel em `https://artechstonebrasil.com.br/admin/` (Decap CMS), para cadastrar 
 **Arquivos:** `admin/index.html` e `admin/config.yml` (campos do formulário), login em `oauth-php/` (Hostinger), `functions/api/` (Cloudflare Pages) ou `api/*.mjs` (Vercel).
 
 **Configuração única (uma vez só):**
-1. GitHub > Settings > Developer settings > OAuth Apps > New OAuth App. Homepage: `https://artechstonebrasil.com.br`. Callback URL: `https://artechstonebrasil.com.br/api/callback`. Gere o Client secret.
+1. GitHub > Settings > Developer settings > OAuth Apps > New OAuth App. Homepage: `https://artechstonebrasil.com.br`. Callback URL: `https://artechstonebrasil.com.br/api/callback`. Gere o Client secret. Enquanto o domínio não estiver apontado, use o endereço de teste (ex.: `https://artech-stones-xi.vercel.app/api/callback`) e troque depois: o GitHub aceita um domínio por app.
 2. Hostinger: copie `oauth-php/decap-oauth.exemplo.php` para a pasta **acima** de `public_html` com o nome `decap-oauth.php` e preencha client_id e client_secret. Nunca dentro de `public_html` nem no GitHub.
    Cloudflare Pages: Settings > Variables and Secrets > `GITHUB_CLIENT_ID` e `GITHUB_CLIENT_SECRET` (tipo Secret).
    Vercel: Settings > Environment Variables com os mesmos dois nomes.
