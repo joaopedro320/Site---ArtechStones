@@ -899,7 +899,7 @@ def main():
         write("vercel.json", vercel())
         # vercel.json da raiz: o mesmo + como buildar (sem isso a Vercel acha que é app Python)
         vc = json.loads(vercel()); vc = {"$schema": "https://openapi.vercel.sh/vercel.json", "framework": None,
-              "installCommand": "python3 -m pip install -r requirements.txt", "buildCommand": "python3 build.py", "outputDirectory": "dist", **vc}
+              "installCommand": "python3 -m pip install --break-system-packages -r requirements.txt", "buildCommand": "python3 build.py", "outputDirectory": "dist", **vc}
         open(os.path.join(ROOT, "vercel.json"), "w", encoding="utf-8").write(json.dumps(vc, indent=1, ensure_ascii=False) + "\n")
         write(".htaccess", htaccess())          # Hostinger (Apache/LiteSpeed)
         write("_redirects", cf_redirects())     # Cloudflare Pages / Netlify
