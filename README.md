@@ -41,7 +41,7 @@ O site funciona nas duas hospedagens sem mudar nada no código:
 
 **Hostinger (QH4)**
 1. hPanel > Avançado > Git: repositório `https://github.com/joaopedro320/Site---ArtechStones.git`, branch `deploy`, pasta `public_html` do domínio.
-2. Ative o deploy automático (webhook) para atualizar a cada push. Como o repositório é privado, adicione a chave SSH que o hPanel mostra em GitHub > Settings > Deploy keys.
+2. Ative o deploy automático (webhook) para atualizar a cada push. Se o repositório for privado, adicione a chave SSH que o hPanel mostra em GitHub > Settings > Deploy keys.
 3. O `.htaccess` já cuida de HTTPS, redirecionamentos do site antigo, 404 e cache.
 
 **Cloudflare Pages**
