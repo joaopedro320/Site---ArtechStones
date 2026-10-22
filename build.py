@@ -897,11 +897,15 @@ def main():
     write(os.path.join("admin", "config.yml"), open(os.path.join(ROOT, "admin", "config.yml"), encoding="utf-8").read().replace("__BASE__", BASE))
     if not PREVIEW:
         write("vercel.json", vercel())
+        # vercel.json da raiz: o mesmo + como buildar (sem isso a Vercel acha que é app Python)
+        vc = json.loads(vercel()); vc = {"$schema": "https://openapi.vercel.sh/vercel.json", "framework": None,
+              "installCommand": "python3 -m pip install -r requirements.txt", "buildCommand": "python3 build.py", "outputDirectory": "dist", **vc}
+        open(os.path.join(ROOT, "vercel.json"), "w", encoding="utf-8").write(json.dumps(vc, indent=1, ensure_ascii=False) + "\n")
         write(".htaccess", htaccess())          # Hostinger (Apache/LiteSpeed)
         write("_redirects", cf_redirects())     # Cloudflare Pages / Netlify
         write("_headers", cf_headers())
         os.makedirs(os.path.join(OUT, "api"), exist_ok=True)  # login do painel na Hostinger (PHP)
-        for f in ("auth.php", "callback.php"): shutil.copy(os.path.join(ROOT, "api", f), os.path.join(OUT, "api", f))
+        for f in ("auth.php", "callback.php"): shutil.copy(os.path.join(ROOT, "oauth-php", f), os.path.join(OUT, "api", f))
     print(f"{n} paginas geradas em {OUT}")
 
 if __name__ == "__main__":

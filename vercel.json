@@ -1,0 +1,216 @@
+{
+ "$schema": "https://openapi.vercel.sh/vercel.json",
+ "framework": null,
+ "installCommand": "python3 -m pip install -r requirements.txt",
+ "buildCommand": "python3 build.py",
+ "outputDirectory": "dist",
+ "cleanUrls": true,
+ "trailingSlash": true,
+ "redirects": [
+  {
+   "source": "/artechlaminas",
+   "destination": "/pedras/artechlaminas/",
+   "permanent": true
+  },
+  {
+   "source": "/artechlaminas/",
+   "destination": "/pedras/artechlaminas/",
+   "permanent": true
+  },
+  {
+   "source": "/artechquartzo",
+   "destination": "/pedras/artechquartzo/",
+   "permanent": true
+  },
+  {
+   "source": "/artechquartzo/",
+   "destination": "/pedras/artechquartzo/",
+   "permanent": true
+  },
+  {
+   "source": "/artechnano",
+   "destination": "/pedras/artechnano/",
+   "permanent": true
+  },
+  {
+   "source": "/artechnano/",
+   "destination": "/pedras/artechnano/",
+   "permanent": true
+  },
+  {
+   "source": "/artechprime",
+   "destination": "/pedras/",
+   "permanent": true
+  },
+  {
+   "source": "/artechprime/",
+   "destination": "/pedras/",
+   "permanent": true
+  },
+  {
+   "source": "/granito",
+   "destination": "/pedras/pedras-naturais/",
+   "permanent": true
+  },
+  {
+   "source": "/granito/",
+   "destination": "/pedras/pedras-naturais/",
+   "permanent": true
+  },
+  {
+   "source": "/distribuidora-de-pedras-importadas",
+   "destination": "/sobre/",
+   "permanent": true
+  },
+  {
+   "source": "/distribuidora-de-pedras-importadas/",
+   "destination": "/sobre/",
+   "permanent": true
+  },
+  {
+   "source": "/guia-de-pedras-importadas",
+   "destination": "/perguntas-frequentes/",
+   "permanent": true
+  },
+  {
+   "source": "/guia-de-pedras-importadas/",
+   "destination": "/perguntas-frequentes/",
+   "permanent": true
+  },
+  {
+   "source": "/faq-perguntas-frequentes",
+   "destination": "/perguntas-frequentes/",
+   "permanent": true
+  },
+  {
+   "source": "/faq-perguntas-frequentes/",
+   "destination": "/perguntas-frequentes/",
+   "permanent": true
+  },
+  {
+   "source": "/linha-estrelar",
+   "destination": "/pedras/artechquartzo/",
+   "permanent": true
+  },
+  {
+   "source": "/linha-estrelar/",
+   "destination": "/pedras/artechquartzo/",
+   "permanent": true
+  },
+  {
+   "source": "/linha-liso",
+   "destination": "/pedras/artechquartzo/",
+   "permanent": true
+  },
+  {
+   "source": "/linha-liso/",
+   "destination": "/pedras/artechquartzo/",
+   "permanent": true
+  },
+  {
+   "source": "/linha-com-veios",
+   "destination": "/pedras/artechquartzo/",
+   "permanent": true
+  },
+  {
+   "source": "/linha-com-veios/",
+   "destination": "/pedras/artechquartzo/",
+   "permanent": true
+  },
+  {
+   "source": "/linha-prime",
+   "destination": "/pedras/",
+   "permanent": true
+  },
+  {
+   "source": "/linha-prime/",
+   "destination": "/pedras/",
+   "permanent": true
+  },
+  {
+   "source": "/linha-nano-2",
+   "destination": "/pedras/artechnano/",
+   "permanent": true
+  },
+  {
+   "source": "/linha-nano-2/",
+   "destination": "/pedras/artechnano/",
+   "permanent": true
+  },
+  {
+   "source": "/home",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/home/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/inicio",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/inicio/",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/pt",
+   "destination": "/",
+   "permanent": true
+  },
+  {
+   "source": "/pt/:path*",
+   "destination": "/:path*",
+   "permanent": true
+  }
+ ],
+ "headers": [
+  {
+   "source": "/(.*)",
+   "headers": [
+    {
+     "key": "X-Content-Type-Options",
+     "value": "nosniff"
+    },
+    {
+     "key": "Referrer-Policy",
+     "value": "strict-origin-when-cross-origin"
+    },
+    {
+     "key": "X-Frame-Options",
+     "value": "SAMEORIGIN"
+    },
+    {
+     "key": "Permissions-Policy",
+     "value": "camera=(), microphone=(), geolocation=()"
+    },
+    {
+     "key": "Strict-Transport-Security",
+     "value": "max-age=63072000; includeSubDomains; preload"
+    }
+   ]
+  },
+  {
+   "source": "/assets/(.*)",
+   "headers": [
+    {
+     "key": "Cache-Control",
+     "value": "public, max-age=31536000, immutable"
+    }
+   ]
+  },
+  {
+   "source": "/(llms.txt|llms-full.txt|robots.txt|sitemap.xml)",
+   "headers": [
+    {
+     "key": "Cache-Control",
+     "value": "public, max-age=3600"
+    }
+   ]
+  }
+ ]
+}

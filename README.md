@@ -74,12 +74,13 @@ Painel em `https://artechstonebrasil.com.br/admin/` (Decap CMS), para cadastrar 
 
 **Para garantir que nada publica sem aprovação:** Settings > Branches > regra para `main` com "Require a pull request before merging" e "Require approvals: 1". A Stella fica como colaboradora; quem aprova é a QH4.
 
-**Arquivos:** `admin/index.html` e `admin/config.yml` (campos do formulário), login em `api/` (Hostinger, PHP) ou `functions/api/` (Cloudflare Pages).
+**Arquivos:** `admin/index.html` e `admin/config.yml` (campos do formulário), login em `oauth-php/` (Hostinger), `functions/api/` (Cloudflare Pages) ou `api/*.mjs` (Vercel).
 
 **Configuração única (uma vez só):**
 1. GitHub > Settings > Developer settings > OAuth Apps > New OAuth App. Homepage: `https://artechstonebrasil.com.br`. Callback URL: `https://artechstonebrasil.com.br/api/callback`. Gere o Client secret.
-2. Hostinger: copie `api/decap-oauth.exemplo.php` para a pasta **acima** de `public_html` com o nome `decap-oauth.php` e preencha client_id e client_secret. Nunca dentro de `public_html` nem no GitHub.
+2. Hostinger: copie `oauth-php/decap-oauth.exemplo.php` para a pasta **acima** de `public_html` com o nome `decap-oauth.php` e preencha client_id e client_secret. Nunca dentro de `public_html` nem no GitHub.
    Cloudflare Pages: Settings > Variables and Secrets > `GITHUB_CLIENT_ID` e `GITHUB_CLIENT_SECRET` (tipo Secret).
+   Vercel: Settings > Environment Variables com os mesmos dois nomes.
 3. Opcional no Cloudflare: Zero Trust > Access protegendo `/admin/*` com os e-mails autorizados (segunda barreira antes do login do GitHub).
 
 ## Pendências antes de publicar
