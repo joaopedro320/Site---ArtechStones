@@ -49,6 +49,7 @@ def process_stone_photos(out_dir):
     for s in STONES:
         fn = s.get("image")
         if not fn: continue
+        fn = os.path.basename(fn)  # o painel pode gravar com caminho
         src = os.path.join(STONE_PHOTOS, fn)
         if not os.path.exists(src):
             print(f"AVISO: foto {fn} da pedra {s['id']} nao encontrada em data/stones/fotos"); s["image"] = None; continue
@@ -740,7 +741,7 @@ def sitemap():
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n{urls}</urlset>\n'
 
 def robots():
-    dis = "".join(f"Disallow: {path_of(l, 'thanks')}\n" for l in LANGS)
+    dis = "".join(f"Disallow: {path_of(l, 'thanks')}\n" for l in LANGS) + "Disallow: /admin/\nDisallow: /api/\n"
     bots = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot-Extended", "Bingbot", "CCBot", "Bytespider", "Baiduspider", "YandexBot"]
     ai = "".join(f"User-agent: {b}\nAllow: /\n{dis}\n" for b in bots)
     return f"User-agent: *\nAllow: /\n{dis}\n{ai}Sitemap: {BASE}/sitemap.xml\n"
@@ -841,6 +842,8 @@ RewriteRule ^ https://%1%{{REQUEST_URI}} [R=301,L]
 RewriteRule ^pt/?(.*)$ /$1 [R=301,L]
 # URLs do site antigo (WordPress)
 {red}
+# Login do painel (/api/auth e /api/callback -> PHP)
+RewriteRule ^api/(auth|callback)$ /api/$1.php [L]
 # Barra no final das pastas
 RewriteCond %{{REQUEST_FILENAME}} -d
 RewriteCond %{{REQUEST_URI}} !/$
@@ -888,11 +891,17 @@ def main():
     write("sitemap.xml", sitemap()); write("robots.txt", robots())
     write("llms.txt", llms_txt()); write("llms-full.txt", llms_full())
     write("site.webmanifest", manifest())
+    # Painel de edição (Decap CMS) em /admin/ e login em /api/
+    os.makedirs(os.path.join(OUT, "admin"), exist_ok=True)
+    shutil.copy(os.path.join(ROOT, "admin", "index.html"), os.path.join(OUT, "admin", "index.html"))
+    write(os.path.join("admin", "config.yml"), open(os.path.join(ROOT, "admin", "config.yml"), encoding="utf-8").read().replace("__BASE__", BASE))
     if not PREVIEW:
         write("vercel.json", vercel())
         write(".htaccess", htaccess())          # Hostinger (Apache/LiteSpeed)
         write("_redirects", cf_redirects())     # Cloudflare Pages / Netlify
         write("_headers", cf_headers())
+        os.makedirs(os.path.join(OUT, "api"), exist_ok=True)  # login do painel na Hostinger (PHP)
+        for f in ("auth.php", "callback.php"): shutil.copy(os.path.join(ROOT, "api", f), os.path.join(OUT, "api", f))
     print(f"{n} paginas geradas em {OUT}")
 
 if __name__ == "__main__":

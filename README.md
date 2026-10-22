@@ -64,6 +64,24 @@ Depois é só fazer commit na `main`: o GitHub Actions gera o site e atualiza a 
 
 Para pré-visualizar localmente com links relativos: `python3 build.py --preview` e abra `preview/index.html`.
 
+## Painel de edição (/admin/)
+
+Painel em `https://artechstonebrasil.com.br/admin/` (Decap CMS), para cadastrar pedras, trocar fotos e marcar Sold out sem mexer em código. Não tem banco de dados: cada alteração vira um commit neste repositório, com autor e histórico.
+
+**Fluxo de revisão:** quem edita salva (Rascunho) > envia para revisão (Em revisão) > quem revisa marca como Pronto > Publicar. Só depois de publicar a alteração entra na `main`, o GitHub Actions gera o site e a hospedagem atualiza.
+
+**Quem entra:** só quem tiver conta no GitHub com acesso de escrita a este repositório (Settings > Collaborators). Exija 2FA de todos. Sem esse acesso, o login é recusado pelo próprio GitHub.
+
+**Para garantir que nada publica sem aprovação:** Settings > Branches > regra para `main` com "Require a pull request before merging" e "Require approvals: 1". A Stella fica como colaboradora; quem aprova é a QH4.
+
+**Arquivos:** `admin/index.html` e `admin/config.yml` (campos do formulário), login em `api/` (Hostinger, PHP) ou `functions/api/` (Cloudflare Pages).
+
+**Configuração única (uma vez só):**
+1. GitHub > Settings > Developer settings > OAuth Apps > New OAuth App. Homepage: `https://artechstonebrasil.com.br`. Callback URL: `https://artechstonebrasil.com.br/api/callback`. Gere o Client secret.
+2. Hostinger: copie `api/decap-oauth.exemplo.php` para a pasta **acima** de `public_html` com o nome `decap-oauth.php` e preencha client_id e client_secret. Nunca dentro de `public_html` nem no GitHub.
+   Cloudflare Pages: Settings > Variables and Secrets > `GITHUB_CLIENT_ID` e `GITHUB_CLIENT_SECRET` (tipo Secret).
+3. Opcional no Cloudflare: Zero Trust > Access protegendo `/admin/*` com os e-mails autorizados (segunda barreira antes do login do GitHub).
+
 ## Pendências antes de publicar
 
 - [ ] **E-mail.** O briefing veio com `relacoespublicas@contato@artechstonedobrasil.com.br.com.br` (endereço inválido). Usei `contato@artechstonedobrasil.com.br`, que está no site atual. Confirmar com a Stella.
