@@ -896,7 +896,8 @@ def main():
     shutil.copy(os.path.join(ROOT, "admin", "index.html"), os.path.join(OUT, "admin", "index.html"))
     write(os.path.join("admin", "config.yml"), open(os.path.join(ROOT, "admin", "config.yml"), encoding="utf-8").read().replace("__BASE__", BASE))
     if not PREVIEW:
-        write("vercel.json", vercel())
+        # cópia na branch deploy: mesma config, mas a Vercel não builda essa branch (ela usa a main)
+        write("vercel.json", json.dumps({"git": {"deploymentEnabled": False}, **json.loads(vercel())}, indent=1))
         # vercel.json da raiz: o mesmo + como buildar (sem isso a Vercel acha que é app Python)
         vc = json.loads(vercel()); vc = {"$schema": "https://openapi.vercel.sh/vercel.json", "framework": None,
               "installCommand": "python3 -m pip install --break-system-packages -r requirements.txt", "buildCommand": "python3 build.py", "outputDirectory": "dist", **vc}
