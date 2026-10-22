@@ -8,6 +8,15 @@
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
 </head>
 <body>
+<script>window.CMS_MANUAL_INIT = true;</script>
 <script src="https://unpkg.com/decap-cms@3.16.3/dist/decap-cms.js"></script>
+<script>
+// Funciona em qualquer domínio (vercel.app, prévia ou domínio final): login e logo usam o endereço atual.
+var o = location.origin;
+CMS.init({ config: {
+  backend: { name: "github", repo: "joaopedro320/Site---ArtechStones", branch: "main", base_url: o, auth_endpoint: "api/auth" },
+  site_url: o, display_url: o, logo_url: o + "/assets/img/logo.svg"
+} });
+</script>
 </body>
 </html>

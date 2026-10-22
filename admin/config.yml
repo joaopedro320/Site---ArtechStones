@@ -1,10 +1,8 @@
-# Painel de edição das pedras (Decap CMS). Gerado para __BASE__ pelo build.py.
+# Painel de edição das pedras (Decap CMS). Endereço de login e logo são definidos em admin/index.html conforme o domínio.
 backend:
   name: github
   repo: joaopedro320/Site---ArtechStones
   branch: main
-  base_url: __BASE__
-  auth_endpoint: api/auth
   commit_messages:
     create: "Nova pedra: {{slug}} (por {{author-name}})"
     update: "Pedra atualizada: {{slug}} (por {{author-name}})"
@@ -16,9 +14,6 @@ backend:
 publish_mode: editorial_workflow
 
 locale: pt
-site_url: __BASE__
-display_url: __BASE__
-logo_url: __BASE__/assets/img/logo.svg
 
 media_folder: data/stones/fotos
 public_folder: ""
