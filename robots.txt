@@ -1,0 +1,161 @@
+User-agent: *
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: GPTBot
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: CCBot
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Bytespider
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /obrigado/
+Disallow: /en/thank-you/
+Disallow: /es/gracias/
+Disallow: /zh/thank-you/
+Disallow: /ja/thank-you/
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://artechstonebrasil.com.br/sitemap.xml

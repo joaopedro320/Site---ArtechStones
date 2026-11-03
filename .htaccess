@@ -1,0 +1,47 @@
+# Gerado pelo build.py
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+RewriteEngine On
+# HTTPS e dominio sem www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+# /pt/ -> raiz
+RewriteRule ^pt/?(.*)$ /$1 [R=301,L]
+# URLs do site antigo (WordPress)
+RewriteRule ^artechlaminas/?$ /pedras/artechlaminas/ [R=301,L]
+RewriteRule ^artechquartzo/?$ /pedras/artechquartzo/ [R=301,L]
+RewriteRule ^artechnano/?$ /pedras/artechnano/ [R=301,L]
+RewriteRule ^artechprime/?$ /pedras/ [R=301,L]
+RewriteRule ^granito/?$ /pedras/pedras-naturais/ [R=301,L]
+RewriteRule ^distribuidora-de-pedras-importadas/?$ /sobre/ [R=301,L]
+RewriteRule ^guia-de-pedras-importadas/?$ /perguntas-frequentes/ [R=301,L]
+RewriteRule ^faq-perguntas-frequentes/?$ /perguntas-frequentes/ [R=301,L]
+RewriteRule ^linha-estrelar/?$ /pedras/artechquartzo/ [R=301,L]
+RewriteRule ^linha-liso/?$ /pedras/artechquartzo/ [R=301,L]
+RewriteRule ^linha-com-veios/?$ /pedras/artechquartzo/ [R=301,L]
+RewriteRule ^linha-prime/?$ /pedras/ [R=301,L]
+RewriteRule ^linha-nano-2/?$ /pedras/artechnano/ [R=301,L]
+RewriteRule ^home/?$ / [R=301,L]
+RewriteRule ^inicio/?$ / [R=301,L]
+# Login do painel (/api/auth e /api/callback -> PHP)
+RewriteRule ^api/(auth|callback)$ /api/$1.php [L]
+# Barra no final das pastas
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ /$1/ [R=301,L]
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+  <FilesMatch "\.(webp|jpg|png|svg|css|js|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+<FilesMatch "^(build\.py|requirements\.txt|README\.md)$">
+  Require all denied
+</FilesMatch>
