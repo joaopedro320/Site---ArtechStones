@@ -338,7 +338,7 @@ def i18n_script(ctx):
             "cursor": {"view": X[ctx.lang]["cursor_view"], "zoom": X[ctx.lang]["cursor_zoom"], "drag": X[ctx.lang]["cursor_drag"]}, "loading": X[ctx.lang]["loading"], "mark": ctx.asset("img/mark-light.svg"), "logo": ctx.asset("img/logo-light.svg"),
             "suggest": {l: {"text": C[l]["ui"]["lang_suggest"], "btn": C[l]["ui"]["lang_suggest_btn"], "dismiss": C[l]["ui"]["dismiss"], "url": ctx.href(ctx.key if ctx.key not in NOINDEX else "home", l)} for l in LANGS}}
     vend = "".join(f'<script src="{ctx.asset("js/vendor/" + v)}" defer></script>' for v in ["gsap.min.js", "ScrollTrigger.min.js", "SplitText.min.js", "lenis.min.js"])
-    return f'<script id="i18n" type="application/json">{json.dumps(data, ensure_ascii=False)}</script>\n{vend}\n<script src="{ctx.asset("js/site.js")}" defer></script>\n</body>\n</html>\n'
+    return f'<script id="i18n" type="application/json">{json.dumps(data, ensure_ascii=False)}</script>\n{vend}\n<script src="{ctx.asset("js/site.js")}" defer></script>\n<script src="https://app-validacao-lp-sapp-validacao-lp.vercel.app/api/t" data-lp="site-artechstones" defer></script>\n</body>\n</html>\n'
 
 def breadcrumb_html(ctx, trail):
     lis = ""
