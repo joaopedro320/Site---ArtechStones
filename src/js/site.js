@@ -39,6 +39,7 @@
       if (!d.body.classList.contains("menu-open") && w.innerWidth > 1100) {
         if (y > 520 && y > lastY + 3) header.classList.add("hidden");
         else if (y < lastY - 3 || y < 520) header.classList.remove("hidden");
+        d.documentElement.classList.toggle("head-hidden", header.classList.contains("hidden"));
       }
     }
     lastY = y;
