@@ -231,7 +231,7 @@
   var mediaAll = function () {
     gsap.utils.toArray("[data-reveal]").forEach(function (el) {
       var im = el.querySelector("img");
-      var tl = gsap.timeline({ scrollTrigger: { trigger: el, start: "top 90%", once: true } });
+      var tl = gsap.timeline({ scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none none" } });
       tl.fromTo(el, { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.6, ease: "expo.inOut" });
       if (im) tl.fromTo(im, { scale: 1.35 }, { scale: 1, duration: 2, ease: EASE }, 0);
     });
@@ -377,7 +377,7 @@
   };
 
   var init = function () {
-    splitAll(); fadeAll(); mediaAll(); wordsAnim(); counters(); marquee(); hgal(); footer(); pointer(); transitions();
+    [splitAll, fadeAll, mediaAll, wordsAnim, counters, marquee, hgal, footer, pointer, transitions].forEach(function(f){ try { f(); } catch (e) { if (w.console) console.warn("init " + f.name + ": " + e.message); } });
     var isHome = !!d.querySelector("[data-hero]");
     if (isHome) loader(function (delay) { heroAnim(delay); html.classList.remove("js"); });
     else { innerEntrance(); html.classList.remove("js"); }
