@@ -392,7 +392,8 @@
   if (!vids.length) return;
   vids.forEach(function (v) {
     var li = v.closest(".vid"), btn = li.querySelector("[data-vid-play]");
-    btn.addEventListener("click", function () { v.play(); });
+    v.controls = false;
+    btn.addEventListener("click", function () { v.controls = true; v.play(); });
     v.addEventListener("play", function () {
       li.classList.add("is-playing");
       vids.forEach(function (o) { if (o !== v && !o.paused) o.pause(); });
