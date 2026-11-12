@@ -1,10 +1,10 @@
 L = {
 "lang": "es", "code": "es", "ogLocale": "es_ES", "langName": "Español", "short": "ES",
-"slugs": {"home":"es", "stones":"es/piedras", "laminas":"es/piedras/artechlaminas", "quartzo":"es/piedras/artechquartzo", "nano":"es/piedras/artechnano", "natural":"es/piedras/piedras-naturales", "about":"es/nosotros", "warranty":"es/garantia", "downloads":"es/descargas", "faq":"es/preguntas-frecuentes", "contact":"es/contacto", "thanks":"es/gracias"},
+"slugs": {"home":"es", "stones":"es/piedras", "laminas":"es/piedras/artechlaminas", "quartzo":"es/piedras/artechquartzo", "nano":"es/piedras/artechnano", "natural":"es/piedras/piedras-naturales", "about":"es/nosotros", "warranty":"es/garantia", "downloads":"es/catalogo", "faq":"es/preguntas-frecuentes", "contact":"es/contacto", "thanks":"es/gracias"},
 "ui": {
   "skip": "Saltar al contenido",
   "menu": "Menú", "close": "Cerrar",
-  "nav": {"stones":"Piedras", "about":"Nosotros", "warranty":"Garantía", "downloads":"Descargas", "faq":"Preguntas frecuentes", "contact":"Contacto"},
+  "nav": {"stones":"Piedras", "about":"Nosotros", "warranty":"Garantía", "downloads":"Catálogo", "faq":"Preguntas frecuentes", "contact":"Contacto"},
   "home": "Inicio",
   "cta_quote": "Pedir presupuesto",
   "cta_whatsapp": "Hablar por WhatsApp",
@@ -123,7 +123,7 @@ L = {
   "cta": "Pedir la documentación técnica",
 },
 "downloads": {
-  "title": "Descargas | Catálogo Artechstone",
+  "title": "Catálogo Artechstone | Láminas, cuarzo y piedras naturales",
   "desc": "Solicite el catálogo de Artechstone con las líneas ArtechLâminas, ArtechQuartzo, ArtechNano y piedras naturales. Envío rápido por WhatsApp.",
   "h1": "Catálogo Artechstone",
   "lead": "Complete sus datos y reciba el catálogo con líneas, colores y aplicaciones. El equipo comercial se lo envía por WhatsApp.",
@@ -210,7 +210,7 @@ L = {
   ["¿Artechstone importa grandes volúmenes?","Sí. Con una red de fabricantes en China, Artechstone importa grandes cantidades de piedra y tiene una amplia gama de productos disponibles para importación."],
   ["¿A quién vende Artechstone?","A marmolerías, empresas del sector de la piedra, arquitectos, diseñadores de interiores, constructoras y profesionales que buscan piedras de alta gama para sus proyectos."],
   ["¿Dónde está Artechstone?","La sede y el almacén están en Rua Joanna Payer, 66C, Boa Vista Aeroporto, Cachoeiro de Itapemirim (Espírito Santo). La galería de São Paulo está en Rua Marcello Muller, 546, Jardim Independência, São Paulo, CEP 03223-060, Brasil."],
-  ["¿Cómo pido catálogo, muestras o presupuesto?","El catálogo se solicita en la página Descargas. Presupuestos y muestras se piden por WhatsApp +55 28 3521-2416, por teléfono +55 28 3028-2299 o por correo electrónico. Artechstone atiende a todo Brasil."],
+  ["¿Cómo pido catálogo, muestras o presupuesto?","El catálogo se solicita en la página Catálogo. Presupuestos y muestras se piden por WhatsApp +55 28 3521-2416, por teléfono +55 28 3028-2299 o por correo electrónico. Artechstone atiende a todo Brasil."],
   ["¿Cómo elegir el material adecuado?","Para encimeras de cocina y baño, ArtechQuartzo. Para exteriores, ArtechNano. Para paredes, muebles y paneles, ArtechLâminas. Para vetas únicas de piedra natural, granitos, mármoles y cuarcitas. El equipo le ayuda a elegir para cada espacio."],
 ],
 "home_faq": [0,1,2,12],

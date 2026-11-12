@@ -1,10 +1,10 @@
 L = {
 "lang": "en", "code": "en", "ogLocale": "en_US", "langName": "English", "short": "EN",
-"slugs": {"home":"en", "stones":"en/stones", "laminas":"en/stones/artechlaminas", "quartzo":"en/stones/artechquartzo", "nano":"en/stones/artechnano", "natural":"en/stones/natural-stone", "about":"en/about", "warranty":"en/warranty", "downloads":"en/downloads", "faq":"en/faq", "contact":"en/contact", "thanks":"en/thank-you"},
+"slugs": {"home":"en", "stones":"en/stones", "laminas":"en/stones/artechlaminas", "quartzo":"en/stones/artechquartzo", "nano":"en/stones/artechnano", "natural":"en/stones/natural-stone", "about":"en/about", "warranty":"en/warranty", "downloads":"en/catalogue", "faq":"en/faq", "contact":"en/contact", "thanks":"en/thank-you"},
 "ui": {
   "skip": "Skip to content",
   "menu": "Menu", "close": "Close",
-  "nav": {"stones":"Stones", "about":"About us", "warranty":"Warranty", "downloads":"Downloads", "faq":"FAQ", "contact":"Contact"},
+  "nav": {"stones":"Stones", "about":"About us", "warranty":"Warranty", "downloads":"Catalogue", "faq":"FAQ", "contact":"Contact"},
   "home": "Home",
   "cta_quote": "Request a quote",
   "cta_whatsapp": "Chat on WhatsApp",
@@ -123,7 +123,7 @@ L = {
   "cta": "Request technical documents",
 },
 "downloads": {
-  "title": "Downloads | Artechstone catalogue",
+  "title": "Artechstone catalogue | Slabs, quartz and natural stone",
   "desc": "Request the Artechstone catalogue with the ArtechLâminas, ArtechQuartzo, ArtechNano and natural stone lines. Sent quickly via WhatsApp.",
   "h1": "Artechstone catalogue",
   "lead": "Fill in your details to receive the catalogue with lines, colours and applications. The sales team sends it to you on WhatsApp.",
@@ -210,7 +210,7 @@ L = {
   ["Does Artechstone handle large-volume imports?","Yes. Through its network of manufacturers in China, Artechstone imports large quantities of stone and has a wide range of products available for import."],
   ["Who does Artechstone sell to?","Stone fabricators, stone companies, architects, interior designers, builders and professionals looking for high-end stone for their projects."],
   ["Where is Artechstone located?","The head office and warehouse are at Rua Joanna Payer, 66C, Boa Vista Aeroporto, Cachoeiro de Itapemirim, Espírito Santo. The São Paulo gallery is at Rua Marcello Muller, 546, Jardim Independência, São Paulo, CEP 03223-060, Brazil."],
-  ["How do I request a catalogue, samples or a quote?","Request the catalogue on the Downloads page. Quotes and samples are requested via WhatsApp +55 28 3521-2416, phone +55 28 3028-2299 or email. Artechstone serves all of Brazil."],
+  ["How do I request a catalogue, samples or a quote?","Request the catalogue on the Catalogue page. Quotes and samples are requested via WhatsApp +55 28 3521-2416, phone +55 28 3028-2299 or email. Artechstone serves all of Brazil."],
   ["How do I choose the right material?","For kitchen and bathroom countertops, ArtechQuartzo. For outdoor areas, ArtechNano. For walls, furniture and panels, ArtechLâminas. For unique natural veining, granite, marble and quartzite. The team can help you choose for each space."],
 ],
 "home_faq": [0,1,2,12],

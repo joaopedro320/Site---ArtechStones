@@ -158,6 +158,56 @@
    "permanent": true
   },
   {
+   "source": "/downloads",
+   "destination": "/catalogo/",
+   "permanent": true
+  },
+  {
+   "source": "/downloads/",
+   "destination": "/catalogo/",
+   "permanent": true
+  },
+  {
+   "source": "/en/downloads",
+   "destination": "/en/catalogue/",
+   "permanent": true
+  },
+  {
+   "source": "/en/downloads/",
+   "destination": "/en/catalogue/",
+   "permanent": true
+  },
+  {
+   "source": "/es/descargas",
+   "destination": "/es/catalogo/",
+   "permanent": true
+  },
+  {
+   "source": "/es/descargas/",
+   "destination": "/es/catalogo/",
+   "permanent": true
+  },
+  {
+   "source": "/zh/downloads",
+   "destination": "/zh/catalogue/",
+   "permanent": true
+  },
+  {
+   "source": "/zh/downloads/",
+   "destination": "/zh/catalogue/",
+   "permanent": true
+  },
+  {
+   "source": "/ja/downloads",
+   "destination": "/ja/catalogue/",
+   "permanent": true
+  },
+  {
+   "source": "/ja/downloads/",
+   "destination": "/ja/catalogue/",
+   "permanent": true
+  },
+  {
    "source": "/pt",
    "destination": "/",
    "permanent": true

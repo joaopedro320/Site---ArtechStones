@@ -12,7 +12,7 @@ Site institucional + catálogo da Artechstone, feito pela QH4 Growth. Português
   pedras/artechquartzo/
   pedras/artechnano/
   pedras/pedras-naturais/
-  sobre/  garantia/  downloads/  perguntas-frequentes/  contato/
+  sobre/  garantia/  catalogo/  perguntas-frequentes/  contato/
   obrigado/                            página de obrigado (noindex)
 404.html                  página de erro em 5 idiomas
 assets/css/site.css       estilos
@@ -89,7 +89,7 @@ Painel em `https://artechstonebrasil.com.br/admin/` (Decap CMS), para cadastrar 
 - [ ] **GTM.** `GTM_ID` no `build.py` está como `GTM-XXXXXXX`. Enquanto for o placeholder, o script nem carrega.
 - [ ] **Instagram da QH4** no rodapé: `instagram.com/qh4growth` (confirmar o @).
 - [ ] **Stocklist.** As 36 pedras vieram do site atual (artechstonebrasil.com.br). Conferir com a stocklist da Stella e incluir mármores e quartzitos naturais, acabamentos e fotos de cada pedra.
-- [ ] **Catálogo em PDF.** A página Downloads pede o catálogo pelo WhatsApp. Se houver PDF, dá para trocar por download direto.
+- [ ] **Catálogo em PDF.** A página Catálogo (antiga Downloads) pede o catálogo pelo WhatsApp. Se houver PDF, dá para trocar por download direto.
 - [ ] **Garantia completa.** A página traz só o que é fato hoje: garantia de 1 ano do ArtechNano e fabricação ISO 9000 (ArtechQuartzo e ArtechNano), ambos do site atual. Pedir à Stella os termos das outras linhas.
 - [ ] **Divergência de dados:** o briefing diz que a Fabiane morou 27 anos em Singapura e, em outro trecho, 26 anos na Ásia. Usei 27 (história) e evitei repetir o número. O briefing escreve "Colin B. Thomas" e o site atual "Colin B Thoms": usei a grafia do briefing.
 - [ ] **CNPJ.** Usei 26.427.026/0001-04 (matriz, do briefing). O site atual mostra 0004-57 (filial).

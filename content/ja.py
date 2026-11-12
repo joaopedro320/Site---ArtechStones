@@ -1,10 +1,10 @@
 L = {
 "lang": "ja", "code": "ja", "ogLocale": "ja_JP", "langName": "日本語", "short": "日本語",
-"slugs": {"home":"ja", "stones":"ja/stones", "laminas":"ja/stones/artechlaminas", "quartzo":"ja/stones/artechquartzo", "nano":"ja/stones/artechnano", "natural":"ja/stones/natural-stone", "about":"ja/about", "warranty":"ja/warranty", "downloads":"ja/downloads", "faq":"ja/faq", "contact":"ja/contact", "thanks":"ja/thank-you"},
+"slugs": {"home":"ja", "stones":"ja/stones", "laminas":"ja/stones/artechlaminas", "quartzo":"ja/stones/artechquartzo", "nano":"ja/stones/artechnano", "natural":"ja/stones/natural-stone", "about":"ja/about", "warranty":"ja/warranty", "downloads":"ja/catalogue", "faq":"ja/faq", "contact":"ja/contact", "thanks":"ja/thank-you"},
 "ui": {
   "skip": "本文へスキップ",
   "menu": "メニュー", "close": "閉じる",
-  "nav": {"stones":"ストーン", "about":"会社概要", "warranty":"保証", "downloads":"ダウンロード", "faq":"よくある質問", "contact":"お問い合わせ"},
+  "nav": {"stones":"ストーン", "about":"会社概要", "warranty":"保証", "downloads":"カタログ", "faq":"よくある質問", "contact":"お問い合わせ"},
   "home": "ホーム",
   "cta_quote": "見積もりを依頼",
   "cta_whatsapp": "WhatsAppで相談",
@@ -123,7 +123,7 @@ L = {
   "cta": "技術資料を請求する",
 },
 "downloads": {
-  "title": "ダウンロード | Artechstone カタログ",
+  "title": "Artechstone カタログ | セラミックスラブ・クォーツ・天然石",
   "desc": "ArtechLâminas、ArtechQuartzo、ArtechNano、天然石を掲載したArtechstoneのカタログをご請求ください。WhatsAppですぐにお送りします。",
   "h1": "Artechstone カタログ",
   "lead": "必要事項をご記入いただくと、シリーズ、カラー、用途を掲載したカタログを営業チームがWhatsAppでお送りします。",
@@ -210,7 +210,7 @@ L = {
   ["大量輸入に対応していますか？","はい。中国のメーカーネットワークを通じて大量の石材を輸入しており、輸入可能な製品も豊富です。"],
   ["どのような顧客に販売していますか？","石材加工業者、石材関連企業、建築家、インテリアデザイナー、建設会社、そして高級石材を求める専門家の皆さまです。"],
   ["Artechstoneの所在地は？","本社と倉庫：Rua Joanna Payer, 66C, Boa Vista Aeroporto, Cachoeiro de Itapemirim（エスピリトサント州）。サンパウロのギャラリー：Rua Marcello Muller, 546, Jardim Independência, São Paulo, CEP 03223-060, ブラジル。"],
-  ["カタログ、サンプル、見積もりはどう依頼しますか？","カタログはダウンロードページから請求できます。見積もりとサンプルはWhatsApp +55 28 3521-2416、電話 +55 28 3028-2299、またはメールでご依頼ください。ブラジル全土に対応しています。"],
+  ["カタログ、サンプル、見積もりはどう依頼しますか？","カタログはカタログページから請求できます。見積もりとサンプルはWhatsApp +55 28 3521-2416、電話 +55 28 3028-2299、またはメールでご依頼ください。ブラジル全土に対応しています。"],
   ["プロジェクトに合った素材の選び方は？","キッチンやバスルームのカウンターにはArtechQuartzo、屋外にはArtechNano、壁・家具・パネルにはArtechLâminas、天然の模様を求めるなら御影石・大理石・クォーツァイトがおすすめです。空間ごとにチームが選定をお手伝いします。"],
 ],
 "home_faq": [0,1,2,12],

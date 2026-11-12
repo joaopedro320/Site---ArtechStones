@@ -800,10 +800,7 @@ def manifest():
                        "icons": [{"src": "/assets/img/icon-192.png", "sizes": "192x192", "type": "image/png"}, {"src": "/assets/img/icon-512.png", "sizes": "512x512", "type": "image/png"}, {"src": "/assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml"}]}, indent=1)
 
 def vercel():
-    old = {"/artechlaminas": "/pedras/artechlaminas/", "/artechquartzo": "/pedras/artechquartzo/", "/artechnano": "/pedras/artechnano/", "/artechprime": "/pedras/",
-           "/granito": "/pedras/pedras-naturais/", "/distribuidora-de-pedras-importadas": "/sobre/", "/guia-de-pedras-importadas": "/perguntas-frequentes/",
-           "/faq-perguntas-frequentes": "/perguntas-frequentes/", "/linha-estrelar": "/pedras/artechquartzo/", "/linha-liso": "/pedras/artechquartzo/",
-           "/linha-com-veios": "/pedras/artechquartzo/", "/linha-prime": "/pedras/", "/linha-nano-2": "/pedras/artechnano/", "/home": "/", "/inicio": "/"}
+    old = {k: v for k, v in OLD_URLS.items() if k != "/contato"}
     redirects = []
     for a, b in old.items():
         redirects.append({"source": a, "destination": b, "permanent": True})
@@ -821,7 +818,8 @@ def vercel():
 OLD_URLS = {"/artechlaminas": "/pedras/artechlaminas/", "/artechquartzo": "/pedras/artechquartzo/", "/artechnano": "/pedras/artechnano/", "/artechprime": "/pedras/",
             "/granito": "/pedras/pedras-naturais/", "/distribuidora-de-pedras-importadas": "/sobre/", "/guia-de-pedras-importadas": "/perguntas-frequentes/",
             "/faq-perguntas-frequentes": "/perguntas-frequentes/", "/linha-estrelar": "/pedras/artechquartzo/", "/linha-liso": "/pedras/artechquartzo/",
-            "/linha-com-veios": "/pedras/artechquartzo/", "/linha-prime": "/pedras/", "/linha-nano-2": "/pedras/artechnano/", "/home": "/", "/inicio": "/", "/contato": "/contato/"}
+            "/linha-com-veios": "/pedras/artechquartzo/", "/linha-prime": "/pedras/", "/linha-nano-2": "/pedras/artechnano/", "/home": "/", "/inicio": "/", "/contato": "/contato/",
+            "/downloads": "/catalogo/", "/en/downloads": "/en/catalogue/", "/es/descargas": "/es/catalogo/", "/zh/downloads": "/zh/catalogue/", "/ja/downloads": "/ja/catalogue/"}
 SEC_HEADERS = [("X-Content-Type-Options", "nosniff"), ("Referrer-Policy", "strict-origin-when-cross-origin"), ("X-Frame-Options", "SAMEORIGIN"),
                ("Permissions-Policy", "camera=(), microphone=(), geolocation=()"), ("Strict-Transport-Security", "max-age=63072000; includeSubDomains; preload")]
 

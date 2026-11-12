@@ -1,10 +1,10 @@
 L = {
 "lang": "zh-Hans", "code": "zh", "ogLocale": "zh_CN", "langName": "中文", "short": "中文",
-"slugs": {"home":"zh", "stones":"zh/stones", "laminas":"zh/stones/artechlaminas", "quartzo":"zh/stones/artechquartzo", "nano":"zh/stones/artechnano", "natural":"zh/stones/natural-stone", "about":"zh/about", "warranty":"zh/warranty", "downloads":"zh/downloads", "faq":"zh/faq", "contact":"zh/contact", "thanks":"zh/thank-you"},
+"slugs": {"home":"zh", "stones":"zh/stones", "laminas":"zh/stones/artechlaminas", "quartzo":"zh/stones/artechquartzo", "nano":"zh/stones/artechnano", "natural":"zh/stones/natural-stone", "about":"zh/about", "warranty":"zh/warranty", "downloads":"zh/catalogue", "faq":"zh/faq", "contact":"zh/contact", "thanks":"zh/thank-you"},
 "ui": {
   "skip": "跳到正文",
   "menu": "菜单", "close": "关闭",
-  "nav": {"stones":"石材", "about":"关于我们", "warranty":"质保", "downloads":"资料下载", "faq":"常见问题", "contact":"联系我们"},
+  "nav": {"stones":"石材", "about":"关于我们", "warranty":"质保", "downloads":"产品目录", "faq":"常见问题", "contact":"联系我们"},
   "home": "首页",
   "cta_quote": "获取报价",
   "cta_whatsapp": "WhatsApp 咨询",
@@ -123,7 +123,7 @@ L = {
   "cta": "索取技术文件",
 },
 "downloads": {
-  "title": "资料下载 | Artechstone 产品目录",
+  "title": "Artechstone 产品目录 | 岩板、石英石与天然石材",
   "desc": "索取 Artechstone 产品目录，涵盖 ArtechLâminas、ArtechQuartzo、ArtechNano 与天然石材系列，通过 WhatsApp 快速发送。",
   "h1": "Artechstone 产品目录",
   "lead": "填写信息即可获取包含系列、颜色和应用的产品目录，由销售团队通过 WhatsApp 发送给您。",
@@ -210,7 +210,7 @@ L = {
   ["Artechstone 是否承接大批量进口？","是的。依托在中国的制造商网络，Artechstone 可进口大批量石材，可供进口的产品种类丰富。"],
   ["Artechstone 的客户有哪些？","石材加工厂、石材企业、建筑师、室内设计师、建筑商，以及为项目寻找高端石材的专业人士。"],
   ["Artechstone 位于哪里？","总部和仓库位于巴西圣埃斯皮里图州卡舒埃鲁迪伊塔佩米林 Rua Joanna Payer, 66C, Boa Vista Aeroporto。圣保罗展廊位于 Rua Marcello Muller, 546, Jardim Independência, São Paulo，邮编 03223-060。"],
-  ["如何索取目录、样品或报价？","可在“资料下载”页面索取目录。报价和样品可通过 WhatsApp +55 28 3521-2416、电话 +55 28 3028-2299 或电子邮件申请。Artechstone 服务巴西全境。"],
+  ["如何索取目录、样品或报价？","可在“产品目录”页面索取目录。报价和样品可通过 WhatsApp +55 28 3521-2416、电话 +55 28 3028-2299 或电子邮件申请。Artechstone 服务巴西全境。"],
   ["如何为项目选择合适的材料？","厨房和浴室台面选 ArtechQuartzo；户外区域选 ArtechNano；墙面、家具和装饰板选 ArtechLâminas；想要独特天然纹理，可选花岗岩、大理石和石英岩。团队可协助您为每个空间做出选择。"],
 ],
 "home_faq": [0,1,2,12],
