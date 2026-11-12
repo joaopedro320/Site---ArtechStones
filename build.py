@@ -115,7 +115,13 @@ class Ctx:
     def href(self, key, lang=None):
         return self.rel(path_of(lang or self.lang, key))
     def asset(self, p):
-        return self.rel("/assets/" + p)
+        v = ASSET_V.get(p)
+        return self.rel("/assets/" + p) + (f"?v={v}" if v else "")
+
+# Versão pelo conteúdo: CSS e JS ficam em cache por 1 ano, então cada mudança precisa de URL nova
+import hashlib
+ASSET_V = {p: hashlib.md5(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "src", p), "rb").read()).hexdigest()[:10]
+           for p in ("css/site.css", "js/site.js")}
 
 # ---------------------------------------------------------------- imagens
 def img(ctx, name, sizes="100vw", cls="", eager=False, alt=None, priority=False):
@@ -744,7 +750,7 @@ def pg_404():
     return f"""<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(C['pt']['pages']['404']['title'])}</title><meta name="robots" content="noindex">
 <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="{FONTS['base']}"><link rel="stylesheet" href="/assets/css/site.css"></head>
+<link rel="stylesheet" href="{FONTS['base']}"><link rel="stylesheet" href="/assets/css/site.css?v={ASSET_V['css/site.css']}"></head>
 <body class="page-404"><main class="nf wrap"><a href="/" class="brand"><img src="/assets/img/logo.svg" alt="Artechstone" width="190" height="36"></a>
 <p class="nf-code">404</p><div class="nf-grid">{blocks}</div></main></body></html>"""
 
