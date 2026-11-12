@@ -19,6 +19,7 @@ assets/css/site.css       estilos
 assets/js/site.js         interações e animações
 assets/js/vendor/         GSAP 3.13 (ScrollTrigger, SplitText) e Lenis 1.3, hospedados no próprio site
 assets/img/               fotos em WebP (640, 1200 e 2000 px), favicons, logo
+assets/video/             3 vídeos da Fabiane (720p, carregam só ao clicar) e capas
 sitemap.xml               sitemap multilíngue com alternates e imagens
 robots.txt                libera buscadores e robôs de IA, bloqueia /obrigado/
 llms.txt, llms-full.txt   resumo e conteúdo completo para ChatGPT, Claude, Perplexity, Gemini

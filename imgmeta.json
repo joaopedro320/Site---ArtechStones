@@ -218,5 +218,115 @@
    2000
   ],
   "c": "#927f78"
+ },
+ "showroom-lounge-mezzanine": {
+  "w": 2000,
+  "h": 1333,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#a19b8e"
+ },
+ "exotic-stone-lounge-wall": {
+  "w": 2000,
+  "h": 1333,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#aa9d83"
+ },
+ "artechlaminas-display-wall": {
+  "w": 2000,
+  "h": 1390,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#a9a297"
+ },
+ "showroom-plants-wide": {
+  "w": 2000,
+  "h": 1334,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#aba494"
+ },
+ "meeting-room-stone-table": {
+  "w": 2000,
+  "h": 1319,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#97978e"
+ },
+ "green-marble-meeting-table": {
+  "w": 2000,
+  "h": 3000,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#98958a"
+ },
+ "artechlaminas-slab-collection": {
+  "w": 2000,
+  "h": 3000,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#aca59a"
+ },
+ "backlit-quartzite-bar": {
+  "w": 2000,
+  "h": 3000,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#b7b8ac"
+ },
+ "marble-island-black-slab": {
+  "w": 2000,
+  "h": 3000,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#b4ada4"
+ },
+ "exotic-slabs-lounge-portrait": {
+  "w": 2000,
+  "h": 3000,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#baaf9d"
+ },
+ "natural-stone-samples-stack": {
+  "w": 2000,
+  "h": 2000,
+  "sizes": [
+   640,
+   1200,
+   2000
+  ],
+  "c": "#8d8987"
  }
 }

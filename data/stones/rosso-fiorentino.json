@@ -1,0 +1,11 @@
+{
+  "id": "rosso-fiorentino",
+  "name": "Rosso Fiorentino",
+  "line": "natural",
+  "image": "rosso-fiorentino.jpg",
+  "soldOut": false,
+  "finishes": [
+    "Polido"
+  ],
+  "order": 21
+}

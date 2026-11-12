@@ -8,7 +8,7 @@ import json, os, sys, shutil, html, datetime, urllib.parse, importlib
 ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, ROOT)
 from content.alts import ALT
-from content.extra import X, WHO_IMG
+from content.extra import X, WHO_IMG, VID
 
 PREVIEW = "--preview" in sys.argv
 OUT = os.path.join(ROOT, "preview" if PREVIEW else "dist")
@@ -64,8 +64,8 @@ def process_stone_photos(out_dir):
         s["image"] = key
 IMG = json.load(open(os.path.join(ROOT, "imgmeta.json")))
 LINES = ["laminas", "quartzo", "nano", "natural"]
-LINE_IMG = {"laminas": "ultracompact-slab-veining-detail", "quartzo": "stone-samples-table", "nano": "showroom-wide-view", "natural": "lounge-exotic-stone-slab"}
-LINE_IMG2 = {"laminas": ["slab-consultation", "showroom-marble-look-slabs"], "quartzo": ["sculpted-sink-stone-surface", "stone-samples-hands"], "nano": ["showroom-mezzanine-slabs", "hand-on-slab-texture"], "natural": ["lounge-chair-stone-slab", "visitors-reviewing-slab"]}
+LINE_IMG = {"laminas": "artechlaminas-display-wall", "quartzo": "stone-samples-table", "nano": "showroom-lounge-mezzanine", "natural": "exotic-stone-lounge-wall"}
+LINE_IMG2 = {"laminas": ["artechlaminas-slab-collection", "marble-island-black-slab"], "quartzo": ["sculpted-sink-stone-surface", "stone-samples-hands"], "nano": ["showroom-mezzanine-slabs", "hand-on-slab-texture"], "natural": ["exotic-slabs-lounge-portrait", "natural-stone-samples-stack"]}
 LINE_FAQ = {"laminas": [1, 2], "quartzo": [3, 7, 5], "nano": [4, 6, 5], "natural": [8, 13]}
 TESTI = [
   ("Venho registrar a minha satisfação em relação à empresa no geral.", "Ricardo", "Granmad", "São Paulo, SP"),
@@ -75,10 +75,10 @@ TESTI = [
   ("Estou feliz com a agilidade no orçamento, com as respostas, prazo de entrega.", "Rony", "SI Advisors", "São Paulo, SP"),
   ("O material é nota 11! O ArtechNano excepcional.", "Arley", "Gramapan", "Espírito Santo"),
 ]
-GALLERY = ["showroom-ultracompact-slabs-aisle", "lounge-exotic-stone-slab", "sculpted-sink-stone-surface",
-           "hand-on-slab-texture", "showroom-mezzanine-slabs", "stone-samples-table",
-           "artechstone-gallery-entrance", "reading-artechstone-catalogue", "showroom-slabs-portrait",
-           "stone-samples-hands", "architects-event-gallery"]
+GALLERY = ["showroom-lounge-mezzanine", "exotic-slabs-lounge-portrait", "artechlaminas-display-wall",
+           "backlit-quartzite-bar", "green-marble-meeting-table", "exotic-stone-lounge-wall",
+           "artechlaminas-slab-collection", "showroom-plants-wide", "marble-island-black-slab",
+           "sculpted-sink-stone-surface", "hand-on-slab-texture", "artechstone-gallery-entrance"]
 APPS_T = {"pt":"Aplicações","en":"Applications","es":"Aplicaciones","zh":"应用","ja":"用途"}
 PAGE_KEYS = ["home", "stones"] + LINES + ["about", "warranty", "downloads", "faq", "contact", "thanks"]
 NOINDEX = {"thanks"}
@@ -358,6 +358,16 @@ def faq_list(pairs, open_first=False):
         out += f'<details class="qa"{" open" if (open_first and i == 0) else ""}><summary><h3>{esc(q)}</h3><span class="qa-icon" aria-hidden="true"></span></summary><div class="qa-a"><p>{esc(a)}</p></div></details>'
     return f'<div class="qa-list">{out}</div>'
 
+FIN = {"Polido": {"en": "Polished", "es": "Pulido", "zh": "抛光面", "ja": "本磨き"},
+       "Levigado": {"en": "Honed", "es": "Apomazado", "zh": "哑光面", "ja": "水磨き"},
+       "Flameado": {"en": "Flamed", "es": "Flameado", "zh": "火烧面", "ja": "バーナー仕上げ"},
+       "Acetinado": {"en": "Satin", "es": "Satinado", "zh": "缎面", "ja": "サテン仕上げ"},
+       "Escovado": {"en": "Brushed", "es": "Cepillado", "zh": "拉丝面", "ja": "ブラッシュ仕上げ"},
+       "Apicoado": {"en": "Bush-hammered", "es": "Abujardado", "zh": "荔枝面", "ja": "ビシャン仕上げ"}}
+
+def fin_t(ctx, f):
+    return FIN.get(f.strip(), {}).get(ctx.lang, f.strip()) if ctx.lang != "pt" else f.strip()
+
 def stone_card(ctx, s):
     L, ui = ctx.L, ctx.ui
     line = L["lines"][s["line"]]["name"]
@@ -365,7 +375,7 @@ def stone_card(ctx, s):
     msg = ui["wa_stone"].format(name=s["name"], line=line)
     media = img(ctx, s["image"], "(max-width:640px) 50vw, 25vw", "card-img", alt=f'{s["name"]}, {line}') if s.get("image") else f'<div class="swatch" aria-hidden="true"><span>{esc(line)}</span><b>{esc(s["name"])}</b></div>'
     so = f'<span class="badge">{esc(ui["sold_out"])}</span>' if s.get("soldOut") else ""
-    fin = f'<p class="stone-fin">{esc(", ".join(s["finishes"]))}</p>' if s.get("finishes") else ""
+    fin = f'<p class="stone-fin">{esc(", ".join(fin_t(ctx, f) for f in s["finishes"]))}</p>' if s.get("finishes") else ""
     note = "" if s.get("image") else f'<p class="stone-note">{esc(ui["photo_soon"])}</p>'
     return f"""<article class="stone{' is-sold' if s.get('soldOut') else ''}" id="{s['id']}" data-line="{s['line']}" data-name="{esc(s['name'].lower())}">
 <div class="stone-media">{media}{so}</div>
@@ -383,6 +393,19 @@ def stones_ld(ctx, stones):
         if s.get("image"): p["image"] = img_url(s["image"])
         items.append({"@type": "ListItem", "position": i + 1, "item": p})
     return {"@type": "ItemList", "@id": abs_url(ctx.lang, ctx.key) + "#stones", "numberOfItems": len(stones), "itemListElement": items}
+
+VIDEOS = [("fabiane-braga-artechstone-1", 69), ("fabiane-braga-artechstone-2", 49), ("fabiane-braga-artechstone-3", 41)]
+
+def section_videos(ctx):
+    v = VID[ctx.lang]
+    items = ""
+    for i, (name, secs) in enumerate(VIDEOS):
+        poster = ctx.asset(f"video/{name}.webp"); src = ctx.asset(f"video/{name}.mp4")
+        items += f'''<li class="vid" data-reveal><div class="vid-frame"><video src="{src}" poster="{poster}" preload="none" playsinline controls width="720" height="1280" aria-label="{esc(v['items'][i])}"></video>
+<button type="button" class="vid-play" data-vid-play aria-label="{esc(v['play'])}: {esc(v['items'][i])}"><span aria-hidden="true"></span></button></div>
+<p class="vid-cap"><b>{esc(v['items'][i])}</b><span>{secs // 60}:{secs % 60:02d}</span></p></li>'''
+    return f'''<section class="videos" aria-labelledby="vid-t"><div class="wrap"><div class="vid-head"><p class="eyebrow">{esc(v['eyebrow'])}</p><h2 id="vid-t" class="h2" data-split>{esc(v['title'])}</h2><p class="vid-lead">{esc(v['lead'])}</p></div>
+<ul class="vid-list">{items}</ul></div></section>'''
 
 def section_final(ctx):
     h = ctx.L["pages"]["home"]
@@ -437,7 +460,7 @@ def pg_home(ctx):
                preload={"name": "artechstone-gallery-sao-paulo-facade", "media": "(min-width: 761px)", "alt": "artechstone-gallery-entrance"})
     out += header(ctx, transparent=True)
     facts = "".join(f"<div><dt>{esc(a)}</dt><dd>{esc(b)}</dd></div>" for a, b in h["facts"])
-    counters = "".join(f'<li><span class="num" data-count="{esc(n)}">{esc(n)}</span><span class="num-l">{esc(l)}</span></li>' for n, l in x["counters"])
+    counters = "".join(f'<li><span class="num" data-count="{esc(n)}">{esc(n)}</span><span class="num-l">{esc(l)}</span></li>' for n, l in [(str(len(STONES)) if n == "36" else n, l) for n, l in x["counters"]])
     # linhas no estilo das refs: rotulo grande + seta, imagem deslocada alternando lados
     lines = ""
     for i, k in enumerate(LINES):
@@ -494,6 +517,8 @@ def pg_home(ctx):
 <p class="marquee-l wrap">{esc(x['marquee_label'])}</p>
 <div class="mq" data-marquee><div class="mq-track">{markets}{markets}</div></div>
 </section>
+
+{section_videos(ctx)}
 
 <section class="hgal" aria-labelledby="gal-t" data-hgal>
 <div class="hgal-pin">
@@ -599,16 +624,17 @@ def pg_about(ctx):
     L, ui = ctx.L, ctx.ui; p = L["pages"]["about"]
     trail = [(ui["home"], "home"), (ui["nav"]["about"], "about")]
     founders_ld = [{"@type": "Person", "name": n, "description": d, "worksFor": {"@id": BASE + "/#org"}} for n, d in p["founders"]]
-    ld = page_ld(ctx, "AboutPage", p["title"], p["desc"], "showroom-wide-view", [crumbs(ctx, trail)] + founders_ld)
-    out = head(ctx, p["title"], p["desc"], "showroom-wide-view", ld, preload={"name": "showroom-wide-view", "sizes": "(max-width:760px) 100vw, 50vw"}) + header(ctx)
+    ld = page_ld(ctx, "AboutPage", p["title"], p["desc"], "showroom-lounge-mezzanine", [crumbs(ctx, trail)] + founders_ld)
+    out = head(ctx, p["title"], p["desc"], "showroom-lounge-mezzanine", ld, preload={"name": "showroom-lounge-mezzanine", "sizes": "(max-width:760px) 100vw, 50vw"}) + header(ctx)
     story = "".join(f"<p>{esc(x)}</p>" for x in p["story"])
     founders = "".join(f'<li><h3>{esc(n)}</h3><p>{esc(d)}</p></li>' for n, d in p["founders"])
     markets = "".join(f"<li>{esc(m)}</li>" for m in p["markets"])
     what = "".join(f'<li><h3>{esc(n)}</h3><p>{esc(d)}</p></li>' for n, d in p["what"])
     out += f"""<main id="main">
-{page_hero(ctx, p['h1'], p['lead'], trail, 'showroom-wide-view')}
+{page_hero(ctx, p['h1'], p['lead'], trail, 'showroom-lounge-mezzanine')}
 <section class="wrap story"><h2 class="h2">{esc(p['story_title'])}</h2><div class="prose prose-lg">{story}</div>
 <figure class="story-fig">{img(ctx, 'reading-artechstone-catalogue', '(max-width:760px) 100vw, 35vw')}</figure></section>
+{section_videos(ctx)}
 <section class="markets"><div class="wrap"><h2 class="markets-t">{esc(p['markets_title'])}</h2><ul class="markets-list">{markets}</ul></div></section>
 <section class="wrap duo"><div data-fade><h2 class="h2">{esc(p['diff_title'])}</h2><p class="statement statement-sm">{esc(p['diff'])}</p></div>
 <div data-fade><h2 class="h2">{esc(p['founders_title'])}</h2><ul class="people">{founders}</ul></div></section>

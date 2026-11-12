@@ -1,0 +1,11 @@
+{
+  "id": "xingu",
+  "name": "Xingu",
+  "line": "natural",
+  "image": "xingu.jpg",
+  "soldOut": false,
+  "finishes": [
+    "Polido"
+  ],
+  "order": 23
+}

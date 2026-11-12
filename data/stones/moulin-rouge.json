@@ -1,0 +1,11 @@
+{
+  "id": "moulin-rouge",
+  "name": "Moulin Rouge",
+  "line": "natural",
+  "image": "moulin-rouge.jpg",
+  "soldOut": false,
+  "finishes": [
+    "Levigado"
+  ],
+  "order": 24
+}

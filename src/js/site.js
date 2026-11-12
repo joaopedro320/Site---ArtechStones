@@ -385,3 +385,19 @@
   };
   if (d.fonts && d.fonts.ready) d.fonts.ready.then(init); else init();
 })();
+
+/* Vídeos da fundadora: um toca por vez */
+(function () {
+  var vids = document.querySelectorAll(".vid video");
+  if (!vids.length) return;
+  vids.forEach(function (v) {
+    var li = v.closest(".vid"), btn = li.querySelector("[data-vid-play]");
+    btn.addEventListener("click", function () { v.play(); });
+    v.addEventListener("play", function () {
+      li.classList.add("is-playing");
+      vids.forEach(function (o) { if (o !== v && !o.paused) o.pause(); });
+      if (window.dataLayer) window.dataLayer.push({ event: "video_play", video: v.getAttribute("src").split("/").pop() });
+    });
+    v.addEventListener("ended", function () { li.classList.remove("is-playing"); });
+  });
+})();

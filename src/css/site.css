@@ -609,3 +609,20 @@ html:not(.js) .mq-track{animation:mq 40s linear infinite}
 .sl{padding-block:.04em}
 
 .nav ul a,.btn,.lang summary{white-space:nowrap}
+
+/* Vídeos da fundadora */
+.videos{background:var(--graphite);color:var(--white);padding:clamp(72px,10vw,140px) 0}
+.vid-head{display:grid;grid-template-columns:1fr 1fr;gap:16px 48px;align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+.vid-head .eyebrow{grid-column:1/-1;font:500 .78rem/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--taupe)}
+.vid-lead{color:rgba(255,255,255,.72);font-size:1.05rem;line-height:1.6;max-width:44ch}
+.vid-list{list-style:none;margin:0 auto 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);max-width:1040px;gap:clamp(14px,2vw,28px)}
+.vid-frame{position:relative;aspect-ratio:9/16;overflow:hidden;border-radius:var(--r);background:#1d1b1b}
+.vid-frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.vid-play{position:absolute;inset:0;border:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.45));cursor:pointer;display:grid;place-items:center;transition:opacity .4s var(--ease)}
+.vid-play span{width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;transition:transform .5s var(--ease)}
+.vid-play span::after{content:"";margin-left:5px;border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent var(--graphite)}
+.vid-play:hover span,.vid-play:focus-visible span{transform:scale(1.08)}
+.vid.is-playing .vid-play{opacity:0;pointer-events:none}
+.vid-cap{display:flex;justify-content:space-between;gap:12px;margin:14px 2px 0;font-size:.92rem;color:rgba(255,255,255,.7)}
+.vid-cap b{font-weight:500;color:var(--white)}
+@media (max-width:900px){.vid-head{grid-template-columns:1fr}.vid-list{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;margin-right:calc(var(--gut)*-1);padding-right:var(--gut)}.vid{scroll-snap-align:start}}

@@ -55,4 +55,12 @@ X = {
   "loading": "読み込み中",
 },
 }
-WHO_IMG = ["visitors-reviewing-slab", "reading-artechstone-catalogue", "showroom-wide-view", "stone-samples-hands"]
+WHO_IMG = ["visitors-reviewing-slab", "green-marble-meeting-table", "showroom-plants-wide", "stone-samples-hands"]
+
+VID = {
+"pt": {"eyebrow": "Em vídeo", "title": "Conheça a Artechstone", "lead": "Fabiane Mendes Braga, CEO e proprietária, na Galeria Artechstone.", "play": "Assistir", "items": ["Vídeo 1", "Vídeo 2", "Vídeo 3"]},
+"en": {"eyebrow": "On video", "title": "Meet Artechstone", "lead": "Fabiane Mendes Braga, CEO and owner, at the Artechstone Gallery. In Portuguese.", "play": "Watch", "items": ["Video 1", "Video 2", "Video 3"]},
+"es": {"eyebrow": "En video", "title": "Conozca Artechstone", "lead": "Fabiane Mendes Braga, CEO y propietaria, en la Galería Artechstone. En portugués.", "play": "Ver", "items": ["Video 1", "Video 2", "Video 3"]},
+"zh": {"eyebrow": "视频", "title": "走进 Artechstone", "lead": "CEO 兼所有人 Fabiane Mendes Braga 在 Artechstone 展廊（葡萄牙语）。", "play": "播放", "items": ["视频 1", "视频 2", "视频 3"]},
+"ja": {"eyebrow": "動画", "title": "Artechstoneについて", "lead": "CEO兼オーナーのFabiane Mendes Braga、Artechstoneギャラリーにて（ポルトガル語）。", "play": "再生", "items": ["動画 1", "動画 2", "動画 3"]},
+}

@@ -1,0 +1,11 @@
+{
+  "id": "vitoria-regia",
+  "name": "Vitória Régia",
+  "line": "natural",
+  "image": "vitoria-regia.jpg",
+  "soldOut": false,
+  "finishes": [
+    "Polido"
+  ],
+  "order": 20
+}

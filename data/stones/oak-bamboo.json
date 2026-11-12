@@ -1,0 +1,11 @@
+{
+  "id": "oak-bamboo",
+  "name": "Oak Bamboo",
+  "line": "natural",
+  "image": "oak-bamboo.jpg",
+  "soldOut": false,
+  "finishes": [
+    "Flameado"
+  ],
+  "order": 22
+}
