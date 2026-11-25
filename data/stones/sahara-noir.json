@@ -2,8 +2,9 @@
   "id": "sahara-noir",
   "name": "Sahara Noir",
   "line": "laminas",
-  "image": null,
+  "image": "sahara-noir.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 11
+  "order": 11,
+  "illustrative": true
 }

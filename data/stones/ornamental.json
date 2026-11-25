@@ -3,8 +3,9 @@
   "name": "Ornamental",
   "line": "natural",
   "type": "granite",
-  "image": null,
+  "image": "ornamental.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 32
+  "order": 32,
+  "illustrative": true
 }

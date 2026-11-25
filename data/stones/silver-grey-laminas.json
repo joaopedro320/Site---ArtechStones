@@ -2,8 +2,9 @@
   "id": "silver-grey-laminas",
   "name": "Silver Grey",
   "line": "laminas",
-  "image": null,
+  "image": "silver-grey-laminas.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 1
+  "order": 1,
+  "illustrative": true
 }

@@ -2,8 +2,9 @@
   "id": "silver-grey-quartzo",
   "name": "Silver Grey",
   "line": "quartzo",
-  "image": null,
+  "image": "silver-grey-quartzo.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 16
+  "order": 16,
+  "illustrative": true
 }

@@ -2,8 +2,9 @@
   "id": "basalt-black",
   "name": "Basalt Black",
   "line": "laminas",
-  "image": null,
+  "image": "basalt-black.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 3
+  "order": 3,
+  "illustrative": true
 }

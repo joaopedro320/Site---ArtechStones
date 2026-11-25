@@ -2,8 +2,9 @@
   "id": "laurent-black",
   "name": "Laurent Black",
   "line": "laminas",
-  "image": null,
+  "image": "laurent-black.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 8
+  "order": 8,
+  "illustrative": true
 }

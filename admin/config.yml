@@ -64,6 +64,12 @@ collections:
         required: false
         choose_url: false
         hint: "JPG, PNG ou WebP, qualquer tamanho. O site gera as versões otimizadas sozinho."
+      - label: "Imagem ilustrativa"
+        name: illustrative
+        widget: boolean
+        default: false
+        required: false
+        hint: "Marcado quando a foto é uma textura de exemplo, não a pedra real. Desmarque ao enviar a foto verdadeira."
       - { label: "Esgotada (Sold out)", name: soldOut, widget: boolean, default: false }
       - label: "Acabamentos"
         name: finishes

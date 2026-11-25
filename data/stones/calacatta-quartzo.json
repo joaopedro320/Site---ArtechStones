@@ -2,8 +2,9 @@
   "id": "calacatta-quartzo",
   "name": "Calacatta",
   "line": "quartzo",
-  "image": null,
+  "image": "calacatta-quartzo.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 25
+  "order": 25,
+  "illustrative": true
 }

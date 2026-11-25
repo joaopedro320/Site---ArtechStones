@@ -2,8 +2,9 @@
   "id": "liso-bege",
   "name": "Liso Bege",
   "line": "quartzo",
-  "image": null,
+  "image": "liso-bege.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 20
+  "order": 20,
+  "illustrative": true
 }

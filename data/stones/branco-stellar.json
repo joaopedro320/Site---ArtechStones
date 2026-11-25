@@ -2,8 +2,9 @@
   "id": "branco-stellar",
   "name": "Branco Stellar",
   "line": "quartzo",
-  "image": null,
+  "image": "branco-stellar.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 13
+  "order": 13,
+  "illustrative": true
 }

@@ -3,8 +3,9 @@
   "name": "Verde Ubatuba",
   "line": "natural",
   "type": "granite",
-  "image": null,
+  "image": "verde-ubatuba.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 28
+  "order": 28,
+  "illustrative": true
 }

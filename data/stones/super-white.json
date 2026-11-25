@@ -2,8 +2,9 @@
   "id": "super-white",
   "name": "Super White",
   "line": "quartzo",
-  "image": null,
+  "image": "super-white.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 22
+  "order": 22,
+  "illustrative": true
 }

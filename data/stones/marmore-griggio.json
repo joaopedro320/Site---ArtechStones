@@ -3,8 +3,9 @@
   "name": "Griggio",
   "line": "natural",
   "type": "marble",
-  "image": null,
+  "image": "marmore-griggio.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 35
+  "order": 35,
+  "illustrative": true
 }

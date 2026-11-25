@@ -2,8 +2,9 @@
   "id": "calacatta-gold-quartzo",
   "name": "Calacatta Gold",
   "line": "quartzo",
-  "image": null,
+  "image": "calacatta-gold-quartzo.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 26
+  "order": 26,
+  "illustrative": true
 }

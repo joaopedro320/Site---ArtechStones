@@ -2,8 +2,9 @@
   "id": "pietra-light-grey",
   "name": "Pietra Light Grey",
   "line": "laminas",
-  "image": null,
+  "image": "pietra-light-grey.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 10
+  "order": 10,
+  "illustrative": true
 }

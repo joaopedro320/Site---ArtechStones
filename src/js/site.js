@@ -19,6 +19,7 @@
 
   /* ---------------- título do hero cabe na largura ---------------- */
   var fitHero = function () {
+    return; /* título agora quebra em bloco único, não precisa caber numa linha */
     d.querySelectorAll(".hero-a,.hero-b").forEach(function (el) {
       if (w.innerWidth <= 760) { el.style.fontSize = ""; return; }
       el.style.fontSize = ""; var max = w.innerWidth * .94, cs = parseFloat(getComputedStyle(el).fontSize);
@@ -260,8 +261,7 @@
       gsap.timeline({ scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true } })
         .to(frame, { clipPath: "inset(7% 4% 7% 4% round 18px)", ease: "none" }, 0)
         .to(img, { scale: 1.22, yPercent: 8, ease: "none" }, 0)
-        .to(a, { xPercent: -16, ease: "none" }, 0)
-        .to(b, { xPercent: 16, ease: "none" }, 0)
+        .to(hero.querySelector(".hero-h1"), { opacity: 0, y: -60, ease: "none" }, 0)
         .to(hero.querySelector(".hero-foot"), { opacity: 0, y: -40, ease: "none" }, 0);
     });
     mm.add("(max-width: 760px)", function () {

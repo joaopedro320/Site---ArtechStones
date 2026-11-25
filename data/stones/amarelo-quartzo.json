@@ -2,8 +2,9 @@
   "id": "amarelo-quartzo",
   "name": "Amarelo",
   "line": "quartzo",
-  "image": null,
+  "image": "amarelo-quartzo.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 24
+  "order": 24,
+  "illustrative": true
 }

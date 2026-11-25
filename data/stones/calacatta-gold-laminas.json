@@ -2,8 +2,9 @@
   "id": "calacatta-gold-laminas",
   "name": "Calacatta Gold",
   "line": "laminas",
-  "image": null,
+  "image": "calacatta-gold-laminas.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 4
+  "order": 4,
+  "illustrative": true
 }

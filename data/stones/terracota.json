@@ -2,8 +2,9 @@
   "id": "terracota",
   "name": "Terracota",
   "line": "quartzo",
-  "image": null,
+  "image": "terracota.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 21
+  "order": 21,
+  "illustrative": true
 }

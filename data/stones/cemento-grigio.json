@@ -2,8 +2,9 @@
   "id": "cemento-grigio",
   "name": "Cemento Grigio",
   "line": "laminas",
-  "image": null,
+  "image": "cemento-grigio.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 6
+  "order": 6,
+  "illustrative": true
 }

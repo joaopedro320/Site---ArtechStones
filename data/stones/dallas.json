@@ -3,8 +3,9 @@
   "name": "Dallas",
   "line": "natural",
   "type": "granite",
-  "image": null,
+  "image": "dallas.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 30
+  "order": 30,
+  "illustrative": true
 }

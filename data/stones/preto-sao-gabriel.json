@@ -3,8 +3,9 @@
   "name": "Preto São Gabriel",
   "line": "natural",
   "type": "granite",
-  "image": null,
+  "image": "preto-sao-gabriel.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 33
+  "order": 33,
+  "illustrative": true
 }

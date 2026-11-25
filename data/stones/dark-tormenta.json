@@ -2,8 +2,9 @@
   "id": "dark-tormenta",
   "name": "Dark Tormenta",
   "line": "laminas",
-  "image": null,
+  "image": "dark-tormenta.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 7
+  "order": 7,
+  "illustrative": true
 }

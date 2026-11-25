@@ -2,8 +2,9 @@
   "id": "cinza-stellar",
   "name": "Cinza Stellar",
   "line": "quartzo",
-  "image": null,
+  "image": "cinza-stellar.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 19
+  "order": 19,
+  "illustrative": true
 }

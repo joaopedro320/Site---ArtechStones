@@ -2,8 +2,9 @@
   "id": "azul-stellar",
   "name": "Azul Stellar",
   "line": "quartzo",
-  "image": null,
+  "image": "azul-stellar.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 14
+  "order": 14,
+  "illustrative": true
 }

@@ -2,8 +2,9 @@
   "id": "artechnano-branco",
   "name": "ArtechNano",
   "line": "nano",
-  "image": null,
+  "image": "artechnano-branco.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 27
+  "order": 27,
+  "illustrative": true
 }

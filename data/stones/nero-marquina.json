@@ -2,8 +2,9 @@
   "id": "nero-marquina",
   "name": "Nero Marquina",
   "line": "laminas",
-  "image": null,
+  "image": "nero-marquina.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 9
+  "order": 9,
+  "illustrative": true
 }

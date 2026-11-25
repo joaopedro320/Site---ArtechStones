@@ -3,8 +3,9 @@
   "name": "Verde Pérola",
   "line": "natural",
   "type": "granite",
-  "image": null,
+  "image": "verde-perola.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 34
+  "order": 34,
+  "illustrative": true
 }

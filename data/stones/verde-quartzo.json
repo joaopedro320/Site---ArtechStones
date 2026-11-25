@@ -2,8 +2,9 @@
   "id": "verde-quartzo",
   "name": "Verde",
   "line": "quartzo",
-  "image": null,
+  "image": "verde-quartzo.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 23
+  "order": 23,
+  "illustrative": true
 }

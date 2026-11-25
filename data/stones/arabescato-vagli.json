@@ -2,8 +2,9 @@
   "id": "arabescato-vagli",
   "name": "Arabescato Vagli",
   "line": "laminas",
-  "image": null,
+  "image": "arabescato-vagli.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 2
+  "order": 2,
+  "illustrative": true
 }

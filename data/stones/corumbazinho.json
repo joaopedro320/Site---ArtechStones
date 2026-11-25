@@ -3,8 +3,9 @@
   "name": "Corumbazinho",
   "line": "natural",
   "type": "granite",
-  "image": null,
+  "image": "corumbazinho.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 29
+  "order": 29,
+  "illustrative": true
 }

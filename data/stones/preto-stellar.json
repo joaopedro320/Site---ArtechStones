@@ -2,8 +2,9 @@
   "id": "preto-stellar",
   "name": "Preto Stellar",
   "line": "quartzo",
-  "image": null,
+  "image": "preto-stellar.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 15
+  "order": 15,
+  "illustrative": true
 }

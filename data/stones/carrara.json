@@ -2,8 +2,9 @@
   "id": "carrara",
   "name": "Carrara",
   "line": "laminas",
-  "image": null,
+  "image": "carrara.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 5
+  "order": 5,
+  "illustrative": true
 }

@@ -2,8 +2,9 @@
   "id": "amarelo-stellar",
   "name": "Amarelo Stellar",
   "line": "quartzo",
-  "image": null,
+  "image": "amarelo-stellar.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 18
+  "order": 18,
+  "illustrative": true
 }

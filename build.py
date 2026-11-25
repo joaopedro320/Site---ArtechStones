@@ -386,6 +386,7 @@ def stone_card(ctx, s):
         zl = X[ctx.lang]["zoom_open"]
         media = (f'<button type="button" class="stone-zoom" data-zoom="{big}" aria-label="{esc(zl)}: {esc(s["name"])}">'
                  + img(ctx, s["image"], "(max-width:640px) 50vw, 25vw", "card-img", alt=f'{s["name"]}, {line}')
+                 + (f'<span class="ill">{esc(X[ctx.lang]["illustrative"])}</span>' if s.get("illustrative") else "")
                  + f'<span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M10.5 7.5v6M7.5 10.5h6"/></svg></span></button>')
     else:
         media = f'<div class="swatch" aria-hidden="true"><span>{esc(line)}</span><b>{esc(s["name"])}</b></div>'
@@ -405,7 +406,7 @@ def stones_ld(ctx, stones):
         p = {"@type": "Product", "name": f"{s['name']} {L['lines'][s['line']]['name'] if s['line'] != 'natural' else ''}".strip(),
              "brand": {"@type": "Brand", "name": "Artechstone"}, "category": L["lines"][s["line"]]["kind"],
              "url": abs_url(ctx.lang, s["line"]) + "#" + s["id"]}
-        if s.get("image"): p["image"] = img_url(s["image"])
+        if s.get("image") and not s.get("illustrative"): p["image"] = img_url(s["image"])
         items.append({"@type": "ListItem", "position": i + 1, "item": p})
     return {"@type": "ItemList", "@id": abs_url(ctx.lang, ctx.key) + "#stones", "numberOfItems": len(stones), "itemListElement": items}
 
@@ -500,7 +501,7 @@ def pg_home(ctx):
         tl += f'<figure class="tq{" on" if i == 0 else ""}" data-tq="{i}"><blockquote><p>{quote}</p></blockquote><figcaption><strong>{esc(a)}</strong><span>{esc(who_l)}</span>{note}</figcaption></figure>'
     dots = "".join(f'<button type="button" class="tdot{" on" if i == 0 else ""}" data-tdot="{i}" aria-label="{i+1}/{len(TESTI)}"></button>' for i in range(len(TESTI)))
     markets = "".join(f"<span>{esc(m)}</span>" for m in L["pages"]["about"]["markets"])
-    feat = "".join(stone_card(ctx, st) for st in [st for st in STONES if st.get("image") and not st.get("soldOut")][:8])
+    feat = "".join(stone_card(ctx, st) for st in [st for st in STONES if st.get("image") and not st.get("illustrative") and not st.get("soldOut")][:8])
     out += f"""<main id="main">
 <section class="hero" data-hero>
 <div class="hero-frame" data-hero-frame>
@@ -508,7 +509,7 @@ def pg_home(ctx):
 <source media="(max-width: 760px)" srcset="{', '.join(f'{ctx.asset(f"img/artechstone-gallery-entrance-{s}.webp")} {s}w' for s in IMG['artechstone-gallery-entrance']['sizes'])}" sizes="100vw">
 {img(ctx, 'artechstone-gallery-sao-paulo-facade', '100vw', 'cover', eager=True, priority=True)}
 </picture></div>
-<h1 class="hero-h1"><span class="hero-a" data-hero-a>{esc(x['hero_a'])}</span> <span class="hero-b" data-hero-b>{esc(x['hero_b'])}</span> <span class="sr">{esc(x['hero_tag'])}</span></h1>
+<h1 class="hero-h1"><span class="hero-t"><span class="hero-a" data-hero-a>{esc(x['hero_a'])}</span> <span class="hero-b" data-hero-b>{esc(x['hero_b'])}</span></span> <span class="sr">{esc(x['hero_tag'])}</span></h1>
 <div class="hero-foot wrap">
 <p class="hero-lead" data-fade>{esc(h['lead'])}</p>
 <div class="btns" data-fade><a class="btn btn-light" href="{ctx.href('stones')}" data-magnetic>{esc(ui['cta_stones'])}</a>{btn_wa(ctx, cls='btn btn-ghost-light', place='hero')}</div>

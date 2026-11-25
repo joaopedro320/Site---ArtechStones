@@ -2,8 +2,9 @@
   "id": "vermelho-stellar",
   "name": "Vermelho Stellar",
   "line": "quartzo",
-  "image": null,
+  "image": "vermelho-stellar.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 17
+  "order": 17,
+  "illustrative": true
 }

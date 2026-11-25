@@ -3,8 +3,9 @@
   "name": "Pinta Verde",
   "line": "natural",
   "type": "marble",
-  "image": null,
+  "image": "marmore-pinta-verde.jpg",
   "soldOut": false,
   "finishes": [],
-  "order": 36
+  "order": 36,
+  "illustrative": true
 }
