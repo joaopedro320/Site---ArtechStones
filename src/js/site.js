@@ -198,7 +198,7 @@
 
   /* scroll suave */
   if (w.Lenis) {
-    lenis = new Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true });
+    lenis = new Lenis({ duration: 1.15, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }, smoothWheel: true }); w.__lenis = lenis;
     lenis.on("scroll", function (e) { ScrollTrigger.update(); onScroll(e.scroll); });
     gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
     gsap.ticker.lagSmoothing(0);
@@ -402,4 +402,51 @@
     });
     v.addEventListener("ended", function () { li.classList.remove("is-playing"); });
   });
+})();
+
+/* Visualizador de pedra: abre o card e permite aproximar a foto */
+(function () {
+  var btns = document.querySelectorAll(".stone-zoom");
+  if (!btns.length) return;
+  var I = {}; try { I = JSON.parse(document.getElementById("i18n").textContent); } catch (e) {}
+  var Z = I.zoom || ["Clique na foto para aproximar", "Toque na foto para aproximar", "Fechar"];
+  var touch = window.matchMedia("(hover: none)").matches;
+  var sv = document.createElement("div");
+  sv.className = "sv"; sv.setAttribute("role", "dialog"); sv.setAttribute("aria-modal", "true"); sv.setAttribute("aria-hidden", "true");
+  sv.innerHTML = '<div class="sv-stage"><img alt=""><p class="sv-hint">' + (touch ? Z[1] : Z[0]) + '</p></div><div class="sv-info"></div>' +
+    '<button type="button" class="sv-close" aria-label="' + Z[2] + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>';
+  document.body.appendChild(sv);
+  var stage = sv.querySelector(".sv-stage"), im = stage.querySelector("img"), info = sv.querySelector(".sv-info"), last = null;
+  var origin = function (x, y) {
+    var r = stage.getBoundingClientRect();
+    im.style.transformOrigin = Math.max(0, Math.min(100, (x - r.left) / r.width * 100)) + "% " + Math.max(0, Math.min(100, (y - r.top) / r.height * 100)) + "%";
+  };
+  var open = function (b) {
+    last = b; var card = b.closest(".stone");
+    im.src = b.getAttribute("data-zoom"); im.alt = (b.querySelector("img") || {}).alt || "";
+    info.innerHTML = ""; var body = card.querySelector(".stone-body"); if (body) info.appendChild(body.cloneNode(true));
+    stage.classList.remove("zoomed"); im.style.transformOrigin = "50% 50%";
+    sv.classList.add("open"); sv.setAttribute("aria-hidden", "false");
+    if (window.__lenis) window.__lenis.stop(); document.documentElement.style.overflow = "hidden";
+    sv.querySelector(".sv-close").focus();
+    if (window.dataLayer) window.dataLayer.push({ event: "stone_zoom", stone: card.id });
+  };
+  var close = function () {
+    sv.classList.remove("open"); sv.setAttribute("aria-hidden", "true"); stage.classList.remove("zoomed");
+    document.documentElement.style.overflow = ""; if (window.__lenis) window.__lenis.start();
+    if (last) last.focus();
+  };
+  btns.forEach(function (b) { b.addEventListener("click", function () { open(b); }); });
+  sv.querySelector(".sv-close").addEventListener("click", close);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && sv.classList.contains("open")) close(); });
+  stage.addEventListener("click", function (e) {
+    if (stage.classList.contains("zoomed")) { stage.classList.remove("zoomed"); return; }
+    origin(e.clientX, e.clientY); stage.classList.add("zoomed");
+  });
+  stage.addEventListener("pointermove", function (e) {
+    if (!stage.classList.contains("zoomed")) return;
+    if (e.pointerType === "mouse" || e.buttons || e.pointerType === "touch") { stage.classList.add("panning"); origin(e.clientX, e.clientY); }
+  });
+  stage.addEventListener("pointerup", function () { stage.classList.remove("panning"); });
+  stage.addEventListener("pointerleave", function () { stage.classList.remove("panning"); });
 })();

@@ -64,3 +64,14 @@ VID = {
 "zh": {"eyebrow": "视频", "title": "走进 Artechstone", "lead": "CEO 兼所有人 Fabiane Mendes Braga 在 Artechstone 展廊（葡萄牙语）。", "play": "播放", "items": ["视频 1", "视频 2", "视频 3"]},
 "ja": {"eyebrow": "動画", "title": "Artechstoneについて", "lead": "CEO兼オーナーのFabiane Mendes Braga、Artechstoneギャラリーにて（ポルトガル語）。", "play": "再生", "items": ["動画 1", "動画 2", "動画 3"]},
 }
+
+# Destaques do catálogo na home + visualizador de pedra
+X2 = {
+"pt": {"feat_title": "Destaques do catálogo", "feat_lead": "Algumas das pedras disponíveis na galeria. Clique na foto para ver os detalhes de perto.", "zoom_open": "Ver de perto", "zoom_hint": "Clique na foto para aproximar", "zoom_hint_touch": "Toque na foto para aproximar"},
+"en": {"feat_title": "Catalogue highlights", "feat_lead": "Some of the stones available at the gallery. Click a photo to see the details up close.", "zoom_open": "See up close", "zoom_hint": "Click the photo to zoom in", "zoom_hint_touch": "Tap the photo to zoom in"},
+"es": {"feat_title": "Destacados del catálogo", "feat_lead": "Algunas de las piedras disponibles en la galería. Haga clic en la foto para ver los detalles de cerca.", "zoom_open": "Ver de cerca", "zoom_hint": "Haga clic en la foto para acercar", "zoom_hint_touch": "Toque la foto para acercar"},
+"zh": {"feat_title": "精选石材", "feat_lead": "展廊现有的部分石材。点击图片即可近距离查看细节。", "zoom_open": "近距离查看", "zoom_hint": "点击图片放大", "zoom_hint_touch": "轻触图片放大"},
+"ja": {"feat_title": "注目の石材", "feat_lead": "ギャラリーでご覧いただける石材の一部です。写真をクリックすると細部を間近でご覧いただけます。", "zoom_open": "拡大して見る", "zoom_hint": "写真をクリックして拡大", "zoom_hint_touch": "写真をタップして拡大"},
+}
+for _l, _v in X2.items():
+    X[_l].update(_v)

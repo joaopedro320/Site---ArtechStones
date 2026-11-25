@@ -59,6 +59,8 @@ def process_stone_photos(out_dir):
             if tw > w and sizes: break
             tw2 = min(tw, w); im.resize((tw2, round(h * tw2 / w)), Image.LANCZOS).save(os.path.join(out_dir, "assets", "img", "stones", f"{s['id']}-{tw}.webp"), "WEBP", quality=76, method=6)
             sizes.append(tw)
+        # versão grande para o zoom do card (até 2600 px de altura)
+        zh = min(h, 2600); im.resize((round(w * zh / h), zh), Image.LANCZOS).save(os.path.join(out_dir, "assets", "img", "stones", f"{s['id']}-zoom.webp"), "WEBP", quality=82, method=6)
         key = f"stones/{s['id']}"
         IMG[key] = {"w": w, "h": h, "sizes": sizes, "c": "#%02x%02x%02x" % im.resize((1, 1)).getpixel((0, 0))}
         s["image"] = key
@@ -340,7 +342,7 @@ def footer(ctx):
 def i18n_script(ctx):
     ui = ctx.ui
     data = {"lang": ctx.lang, "wa": SITE["wa_num"], "form": ui["form"], "gallery": [ui["gallery_prev"], ui["gallery_next"], ui["close"]],
-            "results": ui["results"], "thanks": ctx.href("thanks"), "waDefault": ui["wa_default"],
+            "results": ui["results"], "zoom": [X[ctx.lang]["zoom_hint"], X[ctx.lang]["zoom_hint_touch"], ui["close"]], "thanks": ctx.href("thanks"), "waDefault": ui["wa_default"],
             "cursor": {"view": X[ctx.lang]["cursor_view"], "zoom": X[ctx.lang]["cursor_zoom"], "drag": X[ctx.lang]["cursor_drag"]}, "loading": X[ctx.lang]["loading"], "mark": ctx.asset("img/mark-light.svg"), "logo": ctx.asset("img/logo-light.svg"),
             "suggest": {l: {"text": C[l]["ui"]["lang_suggest"], "btn": C[l]["ui"]["lang_suggest_btn"], "dismiss": C[l]["ui"]["dismiss"], "url": ctx.href(ctx.key if ctx.key not in NOINDEX else "home", l)} for l in LANGS}}
     vend = "".join(f'<script src="{ctx.asset("js/vendor/" + v)}" defer></script>' for v in ["gsap.min.js", "ScrollTrigger.min.js", "SplitText.min.js", "lenis.min.js"])
@@ -379,7 +381,14 @@ def stone_card(ctx, s):
     line = L["lines"][s["line"]]["name"]
     kind = ui.get(s.get("type", ""), "") if s.get("type") else L["lines"][s["line"]]["kind"]
     msg = ui["wa_stone"].format(name=s["name"], line=line)
-    media = img(ctx, s["image"], "(max-width:640px) 50vw, 25vw", "card-img", alt=f'{s["name"]}, {line}') if s.get("image") else f'<div class="swatch" aria-hidden="true"><span>{esc(line)}</span><b>{esc(s["name"])}</b></div>'
+    if s.get("image"):
+        big = ctx.asset(f"img/stones/{s['id']}-zoom.webp")
+        zl = X[ctx.lang]["zoom_open"]
+        media = (f'<button type="button" class="stone-zoom" data-zoom="{big}" aria-label="{esc(zl)}: {esc(s["name"])}">'
+                 + img(ctx, s["image"], "(max-width:640px) 50vw, 25vw", "card-img", alt=f'{s["name"]}, {line}')
+                 + f'<span class="zoom-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21M10.5 7.5v6M7.5 10.5h6"/></svg></span></button>')
+    else:
+        media = f'<div class="swatch" aria-hidden="true"><span>{esc(line)}</span><b>{esc(s["name"])}</b></div>'
     so = f'<span class="badge">{esc(ui["sold_out"])}</span>' if s.get("soldOut") else ""
     fin = f'<p class="stone-fin">{esc(", ".join(fin_t(ctx, f) for f in s["finishes"]))}</p>' if s.get("finishes") else ""
     note = "" if s.get("image") else f'<p class="stone-note">{esc(ui["photo_soon"])}</p>'
@@ -407,9 +416,8 @@ def section_videos(ctx):
     items = ""
     for i, (name, secs) in enumerate(VIDEOS):
         poster = ctx.asset(f"video/{name}.webp"); src = ctx.asset(f"video/{name}.mp4")
-        items += f'''<li class="vid" data-reveal><div class="vid-frame"><video src="{src}" poster="{poster}" preload="none" playsinline controls width="720" height="1280" aria-label="{esc(v['items'][i])}"></video>
-<button type="button" class="vid-play" data-vid-play aria-label="{esc(v['play'])}: {esc(v['items'][i])}"><span aria-hidden="true"></span></button></div>
-<p class="vid-cap"><b>{esc(v['items'][i])}</b><span>{secs // 60}:{secs % 60:02d}</span></p></li>'''
+        items += f'''<li class="vid" data-reveal><div class="vid-frame"><video src="{src}" poster="{poster}" preload="none" playsinline controls width="720" height="1280" aria-label="{esc(v['title'])}"></video>
+<button type="button" class="vid-play" data-vid-play aria-label="{esc(v['play'])}"><span aria-hidden="true"></span></button></div></li>'''
     return f'''<section class="videos" aria-labelledby="vid-t"><div class="wrap"><div class="vid-head"><p class="eyebrow">{esc(v['eyebrow'])}</p><h2 id="vid-t" class="h2" data-split>{esc(v['title'])}</h2><p class="vid-lead">{esc(v['lead'])}</p></div>
 <ul class="vid-list">{items}</ul></div></section>'''
 
@@ -492,6 +500,7 @@ def pg_home(ctx):
         tl += f'<figure class="tq{" on" if i == 0 else ""}" data-tq="{i}"><blockquote><p>{quote}</p></blockquote><figcaption><strong>{esc(a)}</strong><span>{esc(who_l)}</span>{note}</figcaption></figure>'
     dots = "".join(f'<button type="button" class="tdot{" on" if i == 0 else ""}" data-tdot="{i}" aria-label="{i+1}/{len(TESTI)}"></button>' for i in range(len(TESTI)))
     markets = "".join(f"<span>{esc(m)}</span>" for m in L["pages"]["about"]["markets"])
+    feat = "".join(stone_card(ctx, st) for st in [st for st in STONES if st.get("image") and not st.get("soldOut")][:8])
     out += f"""<main id="main">
 <section class="hero" data-hero>
 <div class="hero-frame" data-hero-frame>
@@ -506,25 +515,16 @@ def pg_home(ctx):
 </div>
 </section>
 
-<section class="statement-sec">
-<div class="wrap">
-<p class="statement" data-words>{esc(h['statement'])}</p>
-<ul class="counters">{counters}</ul>
-<details class="facts"><summary>{esc(h['facts_title'])}</summary><dl>{facts}</dl></details>
-</div>
-</section>
-
 <section class="lines wrap" aria-labelledby="ln-t">
 <div class="sec-head"><h2 id="ln-t" class="h2" data-split>{esc(x['lines_title'])}</h2><p data-fade>{esc(x['lines_lead'])}</p></div>
 <ul class="ln-list">{lines}</ul>
 </section>
 
-<section class="marquee" aria-label="{esc(x['marquee_label'])}">
-<p class="marquee-l wrap">{esc(x['marquee_label'])}</p>
-<div class="mq" data-marquee><div class="mq-track">{markets}{markets}</div></div>
+<section class="feat wrap" aria-labelledby="ft-t">
+<div class="sec-head"><h2 id="ft-t" class="h2" data-split>{esc(x['feat_title'])}</h2><p data-fade>{esc(x['feat_lead'])}</p></div>
+<div class="stones feat-grid">{feat}</div>
+<p class="feat-more"><a class="btn btn-solid" href="{ctx.href('stones')}" data-magnetic>{esc(ui['cta_stones'])}</a></p>
 </section>
-
-{section_videos(ctx)}
 
 <section class="hgal" aria-labelledby="gal-t" data-hgal>
 <div class="hgal-pin">
@@ -541,6 +541,21 @@ def pg_home(ctx):
 <section class="import">
 <div class="import-media" data-reveal><div class="pin-in" data-speed="-0.15">{img(ctx, 'showroom-marble-look-slabs', '(max-width:760px) 100vw, 50vw', 'cover')}</div></div>
 <div class="import-in"><h2 class="h2" data-split>{esc(h['import_title'])}</h2><p data-fade>{esc(h['import_text'])}</p>{btn_wa(ctx, h['import_cta'], 'btn btn-light', 'import')}</div>
+</section>
+
+<section class="statement-sec">
+<div class="wrap">
+<p class="statement" data-words>{esc(h['statement'])}</p>
+<ul class="counters">{counters}</ul>
+<details class="facts"><summary>{esc(h['facts_title'])}</summary><dl>{facts}</dl></details>
+</div>
+</section>
+
+{section_videos(ctx)}
+
+<section class="marquee" aria-label="{esc(x['marquee_label'])}">
+<p class="marquee-l wrap">{esc(x['marquee_label'])}</p>
+<div class="mq" data-marquee><div class="mq-track">{markets}{markets}</div></div>
 </section>
 
 <section class="testi" aria-labelledby="t-t" data-testi>
